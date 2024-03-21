@@ -4,6 +4,8 @@ const bcrypt = require('bcrypt')
 
 const { User } = db
 
+
+// need post: Login & post: Register
 router.post('/', async (req, res) => {
     let { password, ...rest } = req.body;
     const user = await User.create({
