@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Route, Routes } from "react-router-dom";
+import Navbar from './components/Navbar';
 import './index.css';
 import Home from "./pages/home";
 import Countries from "./pages/countries";
@@ -10,6 +11,7 @@ function App() {
   return (
     <div className="App">
       <header>
+      <Navbar />
         <h1 className="main-title">The Voyagers Vault</h1>
         <nav>
           <ul>
