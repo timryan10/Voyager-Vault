@@ -6,13 +6,6 @@ import Countries from "./pages/countries";
 import Wishlist from "./pages/wishlist";
 import Destination from "./pages/destinations";
 
-function App() {
-
-import {Link, Route, Routes] from "react-router-dom";
-import Home from "./pages/home";
-import Countries from "./pages/countries";
-import Wishlist from "./pages/destination";
-import Destination from "./pages/wishlist";
 
 import function App() {
   return (
