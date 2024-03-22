@@ -1,18 +1,11 @@
-const router = require('express').Router()
-const db = require("../models")
-const bcrypt = require('bcrypt')
-
-const { User } = db
+import express from "express";
+import User from "../models/user.js";
+const router = express.Router();
 
 
 // need post: Login & post: Register
-router.post('/', async (req, res) => {
-    let { password, ...rest } = req.body;
-    const user = await User.create({
-        ...rest,
-        role: 'reviewer',
-        passwordDigest: await bcrypt.hash(password, 10)
-    })
+router.post('/register', async (req, res) => {
+    const user = await User.create(req.body)
     res.json(user)
 })
 
@@ -21,4 +14,4 @@ router.get('/', async (req, res) => {
     res.json(users)
 })
 
-module.exports = router
+export default router

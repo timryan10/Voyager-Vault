@@ -43,7 +43,7 @@ function RegForm({show, handleClose}){
 
 
         // This link needs to be updated to pull information
-        fetch('https://temptails.onrender.com/api/adoption/',{
+        fetch('http://localhost:5050/user/register',{
             method: 'POST',
             headers: {
                 Accept: 'application.json',
