@@ -1,6 +1,5 @@
 nav ul {
     list-style-type: none;
-    color: #f2f2f2;
     text-decoration: none;
     font-size: 17px;
     display: flex;
@@ -35,6 +34,7 @@ nav a:hover {
     margin: 25px;
     opacity: 1;
     transition: .5s ease;
+    background-color: darkred;
     backface-visibility: hidden;
 }
 
@@ -64,6 +64,7 @@ nav a:hover {
 
 .circle-image:hover .middle {
     opacity: 1;
+    width: 85%;
 }
 
 .text {

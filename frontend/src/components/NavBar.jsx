@@ -19,7 +19,9 @@ function NavBar(){
         <div className="App">
           <header>
             <nav>
+              
               <ul>
+                <li><h1>Voyager Vault</h1></li>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/countries">Countries</Link></li>
                 <li><Link to="/wishlist">Wishlist</Link></li>
