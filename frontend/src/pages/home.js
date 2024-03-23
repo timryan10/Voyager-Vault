@@ -5,7 +5,7 @@ import NavBar from '../components/NavBar'
 const Home = () => {
 const React = require('react')
 
-  return (
+return (
     <div>    
             <div>
                 <h1>Voyager Vault</h1>
