@@ -25,7 +25,7 @@ function NavBar(){
                 <li><Link to="/wishlist">Wishlist</Link></li>
                 <li><Link to="/destination">Destination</Link></li>
                 <li><Button variant="secondary" onClick={handleShow}>Register</Button></li>
-                <li><Button variant="primary" onClick={handleShowLogin}>Log In</Button></li>
+                <li><Button variant="success" onClick={handleShowLogin}>Log In</Button></li>
               </ul>
               <li><SearchBar/></li>
             </nav>
