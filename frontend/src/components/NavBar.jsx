@@ -27,7 +27,6 @@ function NavBar(){
                 <li><Button variant="secondary" onClick={handleShow}>Register</Button></li>
                 <li><Button variant="success" onClick={handleShowLogin}>Log In</Button></li>
               </ul>
-              <li><SearchBar/></li>
             </nav>
           </header> 
 
