@@ -6,8 +6,8 @@ const userSchema = new mongoose.Schema({
     password: {type: String, required: true},
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
-    address: {type: String, required: true},
-    address: {type: String, required: false},
+    country: {type: String, required: false},
+    city: {type: String, required: false},
     // add all other remaining fields
 })
 

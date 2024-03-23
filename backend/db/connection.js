@@ -1,12 +1,12 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
 
-const uri = process.env.ATLAS_URI || "";
-const client = new MongoClient(uri, {
+/*const uri = process.env.ATLAS_URI || ""; */
+const client = new MongoClient("mongodb+srv://timryan025:admin@voyager-vault.pqbssm1.mongodb.net/", {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
     deprecationErrors: true,
-  },
+  }
 });
 
 try {
