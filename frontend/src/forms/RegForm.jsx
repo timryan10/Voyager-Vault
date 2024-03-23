@@ -9,24 +9,19 @@ function RegForm({show, handleClose}){
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [address, setAddress] = useState('');
-    const [address2, setAddress2] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
-    const [zip, setZip] = useState(''); 
+    const [country, setCountry] = useState('')
 
     const clearForm = () => {
         setFirstName('');
         setLastName('')
         setEmail('')
         setPhoneNumber('')
-        setAddress('')
-        setAddress2('')
         setCity('')
         setState('')
-        setZip('')
+        country('')
     }
-
 
     const submitForm = () => {
         const newUser = {
@@ -34,11 +29,9 @@ function RegForm({show, handleClose}){
             lastName,
             email,
             phoneNumber,
-            address,
-            address2,
             city,
             state,
-            zip,
+            country,
         }
 
 
@@ -69,14 +62,14 @@ function RegForm({show, handleClose}){
                 keyboard={false}
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Voyager Vault</Modal.Title>
+                    <Modal.Title>Voyager Vault - Account Registration</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
 
-                    <h2>Register for your personal account with Voyager Vault</h2>
+                    {/* <h2>Register for your own personal account</h2> */}
                     <p>We are excited to help you track adventures and discover new wonders on your next voyage!</p>
                     <div className="row">
-                        <div className="form-group col-sm-4">
+                        <div className="form-group col-sm-6">
                             <label className="form-label">First Name:</label>
                             <input className="form-control" type="text" id="firstName" name="first-name"
                                 value={firstName}
@@ -84,7 +77,7 @@ function RegForm({show, handleClose}){
                             required/>
                         </div>
 
-                        <div className="form-group col-sm-4">
+                        <div className="form-group col-sm-6">
                             <label className="form-label">Last Name:</label>
                             <input className="form-control" type="text" id="lastName" name="last-name"
                             value={lastName}
@@ -94,13 +87,10 @@ function RegForm({show, handleClose}){
                     </div>
 
                     <div className="row">
-                        <div className="form-group col-sm-6">
+                        <div className="form-group">
                             <label className="form-label">E-mail Address:</label>
                             <input className="form-control" type="text" id="email" name="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            
-                            required/>
+                            value={email} onChange={(e) => setEmail(e.target.value)} required/>
                         </div>
                     </div>
 
@@ -111,27 +101,15 @@ function RegForm({show, handleClose}){
                             onChange={(e) => setPhoneNumber(e.target.value)}/>
                         </div>
                     </div>
-
-                    <div className="form-group">
-                        <label>Address</label>
-                        <input type="text" className="form-control" id="inputAddress" value={address}
-                            onChange={(e) => setAddress(e.target.value)} placeholder="1234 Main St"/>
-                    </div>
-
-                    <div className="form-group">
-                        <label >Address 2</label>
-                        <input type="text" className="form-control" id="inputAddress2" value={address2}
-                            onChange={(e) => setAddress2(e.target.value)} placeholder="Apartment, studio, or floor"/>
-                    </div>
                         
-                    <div className="form-row">
+                    <div className="row">
                         <div className="form-group col-md-6">
                             <label>City</label>
                             <input type="text" className="form-control" value={city}
                                 onChange={(e) => setCity(e.target.value)} id="inputCity"/>
                         </div>
 
-                        <div className="form-group col-md-4">
+                        <div className="form-group col-md-5">
                             <label>State</label>
                             <select id="inputState" value={state}
                                 onChange={(e) => setState(e.target.value)} className="form-control">
@@ -189,10 +167,10 @@ function RegForm({show, handleClose}){
                             </select>
                         </div>
 
-                        <div className="form-group col-md-2">
-                            <label>Zip</label>
-                            <input type="text" className="form-control" id="inputZip" value={zip}
-                                onChange={(e) => setZip(e.target.value)}/>
+                        <div className="form-group col-md-6">
+                            <label>Country</label>
+                            <input type="text" className="form-control" value={country}
+                                onChange={(e) => setCountry(e.target.value)} id="inputCountry"/>
                         </div>
                     </div>
                         
