@@ -1,14 +1,15 @@
 import mongoose from "mongoose";
-import bcrypt from "bcryptjs";
+// import bcrypt from "bcryptjs";
 
 const userSchema = new mongoose.Schema({
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
-    address: {type: String, required: true},
-    address: {type: String, required: false},
-    // add all other remaining fields
+    phoneNumber: {type: String, required: true},
+    city: {type: String, required: false},
+    state: {type: String, required: false},
+    country: {type: String, required: false},
 })
 
 // userSchema.pre("save", async function(next) {

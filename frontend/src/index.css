@@ -1,0 +1,22 @@
+nav ul {
+    list-style-type: none;
+    color: #f2f2f2;
+    text-decoration: none;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+}
+
+nav li {
+    display: inline;
+    margin-right: 25px;
+}
+
+nav a {
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: black;
+}
