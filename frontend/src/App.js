@@ -1,10 +1,12 @@
-import {Link, Route, Routes] from "react-router-dom";
+import React from 'react';
+import { Link, Route, Routes } from "react-router-dom";
+import './index.css';
 import Home from "./pages/home";
 import Countries from "./pages/countries";
-import Wishlist from "./pages/destination";
-import Destination from "./pages/wishlist";
+import Wishlist from "./pages/wishlist";
+import Destination from "./pages/destination";
 
-import function App() {
+function App() {
   return (
     <div className="App">
       <header>
@@ -18,6 +20,12 @@ import function App() {
           </ul>
         </nav>
       </header>
+      <Routes>
+        <Route path={"/"} element={<Home />} />
+        <Route path={"/countries"} element={<Countries />} />
+        <Route path={"/destination"} element={<Destination />} />
+        <Route path={"/wishlist"} element={<Wishlist />} />
+      </Routes>
     </div>
   );
 }

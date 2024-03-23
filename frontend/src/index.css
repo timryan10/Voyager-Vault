@@ -1,0 +1,17 @@
+.banner-container{
+    overflow-x: hidden;
+    max-width: 500px;
+}
+
+.banner-wrapper{
+    display: grid;
+    grid-auto-flow: column;
+    /* grid-auto-columns: ; */
+}
+
+/* img {
+    width:x;
+    height:0%;
+    object-fit:x;
+    display:x;
+} */
