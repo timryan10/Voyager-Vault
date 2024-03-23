@@ -1,8 +1,6 @@
 import React from 'react';
 import NavBar from '../components/NavBar'
-import SearchBar from '../components/SearchBar';
 import {Link} from "react-router-dom";
-import Button from 'react-bootstrap/Button';
 
 const Home = () => {
 const React = require('react')
