@@ -21,3 +21,54 @@ nav a {
 nav a:hover {
     color: black;
 }
+
+.banner-img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+.rounded-circle {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    margin: 25px;
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.image-tiles {
+    padding: 25px;
+}
+
+/* styling for circle image hover */
+.container {
+    margin-top: 60px;
+}
+
+.image-tiles:hover .image {
+    opacity: 0.3;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.circle-image:hover .middle {
+    opacity: 1;
+}
+
+.text {
+    background-color: #04AA6D;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+}
