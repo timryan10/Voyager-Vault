@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from '../components/NavBar'
 import SearchBar from '../components/SearchBar';
 import {Link} from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 const Home = () => {
 const React = require('react')
@@ -14,11 +15,6 @@ return (
         <div>
             <img className="banner-img" src="https://www.odysseys-unlimited.com/wp-content/uploads/2023/05/Lead-AdobeStock_290053056-scaled.jpeg" alt="Ireland Odysseys Unlimited by Irina Schmidt on adobe stock photos" />
             <h3>Your possibilities are endless. See what voyages await you!</h3>
-            <div class="homeBlock">
-                <div class="countrySearch">
-                    <SearchBar />
-                </div>
-            </div>
             <div className="image-tiles d-flex justify-content-center align-items-center">
                 <div className="circle-image position-relative">
                     <a href="/pages/countries"><img className="rounded-circle" src="https://st2.depositphotos.com/3591429/5996/i/450/depositphotos_59969927-stock-photo-different-countries-united-with-flags.jpg" alt="Country flags from depositphoto.com" /></a>
