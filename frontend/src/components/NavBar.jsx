@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import RegForm from '../forms/RegForm';
 import LoginForm from "../forms/LoginForm";
+import SearchBar from "./SearchBar";
 
 
 function NavBar(){
@@ -26,6 +27,7 @@ function NavBar(){
                 <li><Button variant="secondary" onClick={handleShow}>Register</Button></li>
                 <li><Button variant="primary" onClick={handleShowLogin}>Log In</Button></li>
               </ul>
+              <li><SearchBar/></li>
             </nav>
           </header> 
 

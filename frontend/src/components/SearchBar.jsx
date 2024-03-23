@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Card from 'react-bootstrap/Card';
 
 function SearchBar() {
     const [query, setQuery] = useState('');
@@ -19,21 +20,31 @@ function SearchBar() {
         }
     };
 
+    const handleClear = () => {
+        setQuery('');
+        setResults([]);
+    };
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input type="text" value={query} onChange={handleChange} />
-                <button type="submit">Search</button>
+                <div className="input-group mb-3">
+                    <input type="text" value={query} onChange={handleChange} className="form-control" placeholder="Search for a country..." />
+                    <button type="submit" className="btn btn-primary">Search</button>
+                    {query && <button type="button" className="btn btn-secondary" onClick={handleClear}>Clear</button>}
+                </div>
             </form>
             <div>
                 {results.map((country) => (
-                    <div key={country.name.common}>
-                        <h2>{country.name.common}</h2>
-                        {country.flags && <img src={country.flags.svg} alt="Flag" />}
-                        <p>Capital: {country.capital}</p>
-                        <p>Population: {country.population}</p>
-                        {/* Add more details as needed */}
-                    </div>
+                    <Card key={country.name.common} style={{ width: '18rem' }}>
+                        <Card.Body>
+                            <Card.Title>{country.name.common}</Card.Title>
+                            {country.flags && <Card.Img variant="top" src={country.flags.svg} alt="Flag" />}
+                            <Card.Text>Capital: {country.capital}</Card.Text>
+                            <Card.Text>Population: {country.population}</Card.Text>
+                            {/* Add more details as needed */}
+                        </Card.Body>
+                    </Card>
                 ))}
             </div>
         </div>

@@ -4,7 +4,7 @@ import SearchBar from '../components/SearchBar';
 const Countries = () => {
   return (
     <div>
-      <SearchBar/>
+      <p>this is my countries</p>
     </div>
   );
 }
