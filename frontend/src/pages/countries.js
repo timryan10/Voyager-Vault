@@ -1,9 +1,10 @@
 import React from 'react';
+import SearchBar from '../components/SearchBar';
 
 const Countries = () => {
   return (
     <div>
-      <p>This is my countries</p>
+      <SearchBar />
     </div>
   );
 }
