@@ -1,7 +1,7 @@
 import NavBar from "./NavBar";
 
 const Home = () => {
-    return(
+    return(  
         <div>
             <h1>Voyager Vault</h1>
             <NavBar />
