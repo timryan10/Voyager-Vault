@@ -11,12 +11,13 @@ const userSchema = new mongoose.Schema({
     // add all other remaining fields
 })
 
-//userSchema.pre("save", async function(next) {
-//     if(this.isModified("password")){
-//         this.password = await bcrypt.hash(this.password, 8);
-//     }
-//     next();
-//})
+userSchema.pre("save", async function(next) {
+    if(this.isModified("password")){
+        this.password = await bcrypt.hash(this.password, 8);
+    }
+    next();
+});
+
 
 const User = mongoose.model("User", userSchema);
 
