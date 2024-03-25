@@ -8,10 +8,15 @@ const userSchema = new mongoose.Schema({
     lastName: {type: String, required: true},
     country: {type: String, required: false},
     city: {type: String, required: false},
-    // add all other remaining fields
-    city: {type: String, required: false},
-    // add all other remaining fields
-})
+    wishlist: [{ 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Country' 
+    }],
+    destinations: [{ 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Country' 
+    }]
+});
 
 userSchema.pre("save", async function(next) {
     if(this.isModified("password")){
@@ -19,7 +24,6 @@ userSchema.pre("save", async function(next) {
     }
     next();
 });
-
 
 const User = mongoose.model("User", userSchema);
 
