@@ -62,8 +62,6 @@ function SearchBar() {
                             {country.flags && <Card.Img variant="top" src={country.flags.svg} alt="Flag" />}
                             <Card.Text>Capital: {country.capital}</Card.Text>
                             <Card.Text>Population: {country.population}</Card.Text>
-                            {/* Add more details as needed */}
-                            {/* Add buttons to add to wishlist and destinations */}
                             <Button variant="primary" onClick={() => handleAddToWishlist(country)}>Add to Wishlist</Button>
                             <Button variant="secondary" onClick={() => handleAddToDestinations(country)}>I have been here!</Button>
                         </Card.Body>
