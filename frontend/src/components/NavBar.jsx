@@ -26,8 +26,10 @@ function NavBar(){
                 <li><Link to="/wishlist">My Wishlist</Link></li>
                 <li><Link to="/destination">Destinations</Link></li>
               </ul>
-              <Button className="formButton" variant="secondary" onClick={handleShow}>Register</Button>
-              <Button className="formButton" variant="success" onClick={handleShowLogin}>Log In</Button>
+              <div>
+                <Button className="formButton" variant="secondary" onClick={handleShow}>Register</Button>
+                <Button className="formButton" variant="success" onClick={handleShowLogin}>Log In</Button>
+              </div>
             </nav>
           </header> 
           <RegForm show={show} handleClose={handleClose}/>

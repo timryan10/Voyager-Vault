@@ -3,7 +3,12 @@
     font-size: 17px;
     display: flex;
     align-items: center;
-    padding-left: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    left: 0;
 }
 
 nav ul {
@@ -57,9 +62,9 @@ nav a:hover {
 }
 
 /* styling for circle image hover */
-.container {
+/* .container {
     margin-top: 60px;
-}
+} */
 
 .image-tiles:hover .image {
     opacity: 0.3;
