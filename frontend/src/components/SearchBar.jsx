@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import axios from 'axios'; // Import axios for making HTTP requests
 
 function SearchBar() {
     const [query, setQuery] = useState('');
@@ -25,6 +27,24 @@ function SearchBar() {
         setResults([]);
     };
 
+    const handleAddToWishlist = async (country) => {
+        try {
+            // Add to wishlist logic
+            console.log('Added to wishlist:', country.name.common);
+        } catch (error) {
+            console.error('Error adding to wishlist:', error);
+        }
+    };
+
+    const handleAddToDestinations = async (country) => {
+        try {
+            // Add to destinations logic
+            console.log('Added to destinations:', country.name.common);
+        } catch (error) {
+            console.error('Error adding to destinations:', error);
+        }
+    };
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -43,6 +63,9 @@ function SearchBar() {
                             <Card.Text>Capital: {country.capital}</Card.Text>
                             <Card.Text>Population: {country.population}</Card.Text>
                             {/* Add more details as needed */}
+                            {/* Add buttons to add to wishlist and destinations */}
+                            <Button variant="primary" onClick={() => handleAddToWishlist(country)}>Add to Wishlist</Button>
+                            <Button variant="secondary" onClick={() => handleAddToDestinations(country)}>I have been here!</Button>
                         </Card.Body>
                     </Card>
                 ))}
@@ -52,3 +75,5 @@ function SearchBar() {
 }
 
 export default SearchBar;
+
+
