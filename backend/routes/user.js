@@ -10,7 +10,7 @@ router.post("/register", [
     check("lastName", "Last name is required").isString(),
     check("email", "Email is required").isEmail(),
     check("password", "Password with 5 or more characters is required").isLength({
-            min: 6,
+            min: 5,
         })
     ],
     async(req, res) => {

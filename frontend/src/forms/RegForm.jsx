@@ -35,6 +35,7 @@ function RegForm({show, handleClose}){
             firstName,
             lastName,
             email,
+            password,
             phoneNumber,
             address,
             address2,
@@ -178,8 +179,8 @@ function RegForm({show, handleClose}){
                             <input className="form-control" type="password" id="password" name="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            
-                            required/>
+                            required
+                            />
                         </div>
                     </div>
                         
