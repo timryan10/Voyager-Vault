@@ -9,6 +9,8 @@ const userSchema = new mongoose.Schema({
     country: {type: String, required: false},
     city: {type: String, required: false},
     // add all other remaining fields
+    city: {type: String, required: false},
+    // add all other remaining fields
 })
 
 userSchema.pre("save", async function(next) {
