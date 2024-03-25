@@ -6,18 +6,17 @@ const userSchema = new mongoose.Schema({
     password: {type: String, required: true},
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
-    phoneNumber: {type: String, required: true},
-    city: {type: String, required: false},
-    state: {type: String, required: false},
     country: {type: String, required: false},
+    city: {type: String, required: false},
+    // add all other remaining fields
 })
 
-// userSchema.pre("save", async function(next) {
+//userSchema.pre("save", async function(next) {
 //     if(this.isModified("password")){
 //         this.password = await bcrypt.hash(this.password, 8);
 //     }
 //     next();
-// })
+//})
 
 const User = mongoose.model("User", userSchema);
 

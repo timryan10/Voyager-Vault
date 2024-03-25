@@ -7,7 +7,7 @@ const client = new MongoClient("mongodb+srv://timryan025:admin@voyager-vault.pqb
     version: ServerApiVersion.v1,
     strict: true,
     deprecationErrors: true,
-  },
+  }
 });
 
 
