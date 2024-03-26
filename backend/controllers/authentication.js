@@ -1,44 +1,37 @@
-const router = require('express').Router()
-const db = require('../models')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
-const { default: User } = require('../models/user')
+async function submitForm(e) {
+    e.preventDefault();
 
-const { Uer } = db
+    const newUser = {
+        email,
+        password
+    };
 
-router.post('/', async (req, res) => {
-    let user = await User.findOne({
-        where: {email: req.body.email}
-    })
-
-    if(!user || !await bcrypt.compare(req.body.passowrd, user.passowrdDigest)){
-        res.status(404).json({
-            message: `Couldn't find user with provided email`
-        })
-    }else {
-        const result = await jwt.encode(process.env.JWT_SECRET, {id: user.userId})
-        res.json({user: user, token: result.value})
-    }
-})
-
-router.get('/profile', async (req, res) => {
-    res.json(req.currentUser)
     try {
-        const [authenticationMethod, token] = req.headers.authorization.split('')
+        const response = await fetch(`http://localhost:5050/authentication/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newUser)
+        });
 
-        if (authenticationMethod == 'Bearer'){
-            const result = await jwt.decode(process.env.JWT_SECRET, token)
+        const data = await response.json();
 
-            const { id } = result.value
-
-            let user = await User.findOne({
-                where: {
-                    userId: id
+        if (response.ok) {
+            localStorage.setItem('token', data.token); // Save the token to local storage
+            const profileResponse = await fetch(`http://localhost:5050/authentication/profile`, {
+                headers: {
+                    'Authorization': `Bearer ${data.token}`
                 }
-            })
-            res.json(user)
+            });
+            const profileData = await profileResponse.json();
+            setCurrentUser(profileData);
+            navigate('/');
+        } else {
+            setErrorMessage(data.message);
         }
     } catch (error) {
-        res.json(null)
+        console.error("An error occurred:", error);
+        setErrorMessage("An error occurred, please try again");
     }
-})
+}
