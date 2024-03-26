@@ -1,8 +1,16 @@
+nav {
+    /* display: inline-flex; */
+    justify-content: space-between;
+    width: 100%;
+}
+
+header {
+    width: 100%;
+}
 
 nav ul {
     list-style-type: none;
     text-decoration: none;
-    font-size: 15px;
 }
 
 nav li:not(:last-child) {
@@ -12,6 +20,7 @@ nav li:not(:last-child) {
 nav li {
     display: inline;
     padding: 0 .5em;
+    font-size: 12px;
 }
 
 nav a {
@@ -20,8 +29,21 @@ nav a {
     color: green;
 }
 
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 35px;
+}
+
 nav a:hover {
     color: black;
+}
+
+.titleText {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.formButton {
+    margin-left: 10px;
 }
 
 .banner-img {
@@ -37,6 +59,7 @@ nav a:hover {
     margin: 25px;
     opacity: 1;
     transition: .5s ease;
+    background-color: darkred;
     backface-visibility: hidden;
 }
 
@@ -66,6 +89,7 @@ nav a:hover {
 
 .circle-image:hover .middle {
     opacity: 1;
+    width: 85%;
 }
 
 .text {
@@ -89,4 +113,55 @@ h3 {
     display: flex;
     justify-content: center;
     margin-top: 40px;
+    font-family:'Times New Roman', Times, serif;
 }
+
+.subpage-image {
+    height: 200px;
+    object-fit: cover;
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    min-height: auto;
+}
+
+@media (min-width: 992px) {
+    .carousel-item img {
+      height: 450px; /* Adjust the height for larger screens */
+    }
+}
+
+.our-mission {
+    text-align: center;
+    padding-top: 30px;
+    font-family: Playfair Display;
+    font-size: 20px;
+}
+
+@media (max-width: 480px) {
+    /* mobile devices */
+}
+
+@media (max-width: 768px) {
+    /* tablet/iPad devices */
+    
+}
+
+
+
+/* .navigation {
+    display: inline-flex;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    left: 0;
+} */
