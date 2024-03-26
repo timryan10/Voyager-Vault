@@ -1,6 +1,7 @@
 .navigation {
-    display: inline-flex;
-
+    display:inline-flex;
+ 
+}
 nav ul {
     list-style-type: none;
     color: #f2f2f2;
@@ -102,7 +103,7 @@ nav a:hover {
   
   @media (min-width: 992px) {
     .carousel-item img {
-      height: 450px; /* Adjust the height for larger screens */
+      height: 450px; 
     }
   }
 
@@ -110,7 +111,7 @@ nav a:hover {
    text-align: center;
    padding-top: 30px;
    font-family: Playfair Display;
-   font-size: 20px;
+   font-size: 30px;
   }
 
 .homeBlock {
