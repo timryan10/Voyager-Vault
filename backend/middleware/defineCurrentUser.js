@@ -1,5 +1,5 @@
-const db = require("../models")
-const jwt = require('json-web-token')
+const db = require("../models");
+const jwt = require('jsonwebtoken');
 
 const { User } = db;
 
