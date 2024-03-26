@@ -1,37 +1,21 @@
-async function submitForm(e) {
-    e.preventDefault();
+const User = require('../models/user');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
-    const newUser = {
-        email,
-        password
-    };
-
+exports.login = async (req, res) => {
+    const { email, password } = req.body;
+    
     try {
-        const response = await fetch(`http://localhost:5050/authentication/`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newUser)
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            localStorage.setItem('token', data.token); // Save the token to local storage
-            const profileResponse = await fetch(`http://localhost:5050/authentication/profile`, {
-                headers: {
-                    'Authorization': `Bearer ${data.token}`
-                }
-            });
-            const profileData = await profileResponse.json();
-            setCurrentUser(profileData);
-            navigate('/');
-        } else {
-            setErrorMessage(data.message);
+        const user = await User.findOne({ email });
+        if (!user || !bcrypt.compareSync(password, user.password)) {
+            return res.status(401).json({ message: 'Invalid email or password' });
         }
+
+        const token = jwt.sign({ userId: user._id }, 'your-secret-key', { expiresIn: '1h' });
+
+        res.json({ token, user: { _id: user._id, email: user.email } });
     } catch (error) {
-        console.error("An error occurred:", error);
-        setErrorMessage("An error occurred, please try again");
+        console.error(error);
+        res.status(500).json({ message: 'Internal Server Error' });
     }
-}
+};
