@@ -18,7 +18,7 @@ function LoginForm({ show, handleClose }) {
             password
         }
     
-        fetch('http://localhost:5050/user/login', {
+        fetch('http://localhost:5050/authentication/login', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

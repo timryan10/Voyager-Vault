@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from 'dotenv';
 import userController from './controllers/user.js';
 import mongoose from "mongoose";
+import authenticationController from './controllers/authentication.js';
 
 dotenv.config()
 
@@ -23,6 +24,8 @@ app.use(cors({
 
 app.use(express.json());
 app.use('/user', userController)
+app.use('/authentication', authenticationController)
+
 
 // start the Express server
 app.listen(PORT, () => {
