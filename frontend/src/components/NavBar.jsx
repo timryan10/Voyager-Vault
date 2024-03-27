@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import RegForm from '../forms/RegForm';
 import LoginForm from "../forms/LoginForm";
 // import SearchBar from "./SearchBar";
+import CurrentUserProvider from "../contexts/CurrentUser";
 
 
 function NavBar(){
@@ -30,8 +31,10 @@ function NavBar(){
               <Button className="formButton" variant="success" onClick={handleShowLogin}>Log In</Button>
             </nav>
           </header> 
+          <CurrentUserProvider>
           <RegForm show={show} handleClose={handleClose}/>
           <LoginForm show={showLogin} handleClose={handleCloseLogin}/>
+          </CurrentUserProvider>
         </div>
     )        
 };

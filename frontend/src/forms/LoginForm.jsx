@@ -9,7 +9,7 @@ function LoginForm({show, handleClose}){
     
     const navigate = useNavigate()
 
-    const { setCurrentUser } = useContext(CurrentUser)||{};
+    const { setCurrentUser } = useContext(CurrentUser);
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')

@@ -36,4 +36,40 @@ router.post("/register", [
     }
 )
 
+router.post("/login", [
+    check("email", "Email is required").isEmail(),
+    check("password", "Password is required").exists()
+    ],
+    async(req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()){
+            return res.status(400).json({errors: errors.array()})
+        }
+        try {
+            const { email, password } = req.body;
+
+            // Check if user exists
+            let user = await User.findOne({ email });
+
+            if (!user){
+                return res.status(400).json({message: "Invalid credentials"})
+            }
+
+            // Validate password
+            const isMatch = await bcrypt.compare(password, user.password);
+            if (!isMatch) {
+                return res.status(400).json({ message: 'Invalid credentials' });
+            }
+
+            // Generate JWT token
+            const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
+
+            res.json({ token });
+        } catch(error){
+            console.error(error);
+            res.status(500).send({message: "Something went wrong"})
+        }
+    }
+)
+
 export default router;

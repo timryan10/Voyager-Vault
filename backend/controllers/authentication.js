@@ -4,14 +4,14 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const { default: User } = require('../models/user')
 
-const { Uer } = db
+const { User } = db
 
 router.post('/', async (req, res) => {
     let user = await User.findOne({
         where: {email: req.body.email}
     })
 
-    if(!user || !await bcrypt.compare(req.body.passowrd, user.passowrdDigest)){
+    if(!user || !await bcrypt.compare(req.body.password, user.passwordDigest)){
         res.status(404).json({
             message: `Couldn't find user with provided email`
         })
