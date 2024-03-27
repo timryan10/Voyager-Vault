@@ -1,9 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar'
 import {Link} from "react-router-dom";
 
 const Home = () => {
 const React = require('react')
+const [currentSlide, setCurrentSlide] = useState(0);
+const slides = [
+    {
+    src: "https://www.odysseys-unlimited.com/wp-content/uploads/2023/05/Lead-AdobeStock_290053056-scaled.jpeg",
+    alt: "Picture of a castle in Ireland from pexels.com",
+    },
+    {
+    src: "https://images.pexels.com/photos/3727255/pexels-photo-3727255.jpeg",
+    alt: "Architecture in Santorini, Greece from pexels.com",
+    },
+    {
+    src: "https://images.pexels.com/photos/3601453/pexels-photo-3601453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    alt: "Sunset at beach from pexels.com",
+    },
+    {
+    src: "https://images.pexels.com/photos/869258/pexels-photo-869258.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    alt: "Travelers climbing snowy mountain from pexels.com",
+    },
+    ];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+        setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+        }, 5000);
+
+        return () => clearInterval(interval);
+        }, []);
+
 
 return (
     <div>    
@@ -11,7 +39,40 @@ return (
             <NavBar />
         </div>
         <div>
-            <img className="banner-img" src="https://www.odysseys-unlimited.com/wp-content/uploads/2023/05/Lead-AdobeStock_290053056-scaled.jpeg" alt="Ireland Odysseys Unlimited by Irina Schmidt on adobe stock photos" />
+            <div className="carousel slide" data-ride="carousel">
+            <div className="carousel-inner">
+                {slides.map((slide, index) => (
+                <div
+                    key={index}
+                    className={`carousel-item ${
+                        index === currentSlide ? "active" : ""
+                    }`}
+                >
+                    <img className="d-block w-100" src={slide.src} alt={slide.alt} />
+                </div>
+                ))}
+            </div>
+            <a
+                class="carousel-control-prev"
+                href="#carouselExampleControls"
+                role="button"
+                data-slide="prev"
+            >
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a
+                class="carousel-control-next"
+                href="#carouselExampleControls"
+                role="button"
+                data-slide="next"
+            >
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            </div>
+        </div>
+        <div>
             <h3>Unlocking Travel Stories. Inspiring Destinations.</h3>
             <div className="image-tiles d-flex justify-content-center align-items-center">
                 <div className="circle-image position-relative">
@@ -45,3 +106,6 @@ return (
 }
 
 export default Home
+
+
+
