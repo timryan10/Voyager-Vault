@@ -25,9 +25,9 @@ function NavBar(){
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul className="navbar-brand me-auto mb-2 mb-lg-1">
                     {/* <li><Link to="/">Home</Link></li> */}
-                    <li><Link to="/countries">Search Countries</Link></li>
-                    <li><Link to="/wishlist">My Wishlist</Link></li>
-                    <li><Link to="/destination">Destinations</Link></li>
+                    <li className="nav-item active"><Link to="/countries">Search Countries</Link></li>
+                    <li className="nav-item active"><Link to="/wishlist">My Wishlist</Link></li>
+                    <li className="nav-item active"><Link to="/destination">Destinations</Link></li>
                   </ul>
                   <div>
                     <Button className="formButton" variant="secondary" onClick={handleShow}>Register</Button>
