@@ -137,3 +137,22 @@ h3 {
     transition: .5s ease;
     backface-visibility: hidden;
 }
+
+.destination-message-main-title{
+text-align: left;
+font-weight: bold;
+font-size: 30px;
+font-family: Almarai;
+padding-left: 20px;
+}
+
+.destination-message{
+font-size:25px;
+font-family: Almarai;
+padding-left: 20px;
+color: green;
+}
+
+.popularCities{
+text-align: center;
+}

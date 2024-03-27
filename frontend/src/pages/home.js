@@ -1,14 +1,26 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "../components/NavBar";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
-    "https://www.odysseys-unlimited.com/wp-content/uploads/2023/05/Lead-AdobeStock_290053056-scaled.jpeg",
-    "https://images.pexels.com/photos/3727255/pexels-photo-3727255.jpeg",
-    "https://images.pexels.com/photos/3601453/pexels-photo-3601453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "https://images.pexels.com/photos/869258/pexels-photo-869258.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    {
+      src: "https://www.odysseys-unlimited.com/wp-content/uploads/2023/05/Lead-AdobeStock_290053056-scaled.jpeg",
+      alt: "Picture of a castle in Ireland from pexels.com",
+    },
+    {
+      src: "https://images.pexels.com/photos/3727255/pexels-photo-3727255.jpeg",
+      alt: "Architecture in Santorini, Greece from pexels.com",
+    },
+    {
+      src: "https://images.pexels.com/photos/3601453/pexels-photo-3601453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      alt: "Sunset at beach from pexels.com",
+    },
+    {
+      src: "https://images.pexels.com/photos/869258/pexels-photo-869258.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      alt: "Travelers climbing snowy mountain from pexels.com",
+    },
   ];
 
   useEffect(() => {
@@ -21,9 +33,7 @@ const Home = () => {
 
   return (
     <div>
-      <div>
-        <NavBar />
-      </div>
+      <NavBar />
       <div className="carousel slide" data-ride="carousel">
         <div className="carousel-inner">
           {slides.map((slide, index) => (
@@ -33,14 +43,28 @@ const Home = () => {
                 index === currentSlide ? "active" : ""
               }`}
             >
-              <img
-                className="d-block w-100"
-                src={slide}
-                alt={`Slide ${index + 1}`}
-              />
+              <img className="d-block w-100" src={slide.src} alt={slide.alt} />
             </div>
           ))}
         </div>
+        <a
+          class="carousel-control-prev"
+          href="#carouselExampleControls"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#carouselExampleControls"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
       <div>
         <p className="our-mission">
@@ -57,9 +81,9 @@ const Home = () => {
             />
           </a>
           <div className="middle">
-          <Link to="/destination">
-          <div className="text">Destinations</div>
-          </Link>
+            <Link to="/destination">
+              <div className="text">Destinations</div>
+            </Link>
           </div>
         </div>
         <div className="circle-image position-relative">
