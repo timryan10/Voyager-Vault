@@ -7,7 +7,7 @@ const Destination = () => {
   const [isLoading, setIsLoading] = useState(false);
  
   const popularCities = [
-    { name: "New York", imageUrl: "https://images.pexels.com/photos/1770775/pexels-photo-1770775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
+    { name: "New York", imageUrl: "https://images.pexels.com/photos/290386/pexels-photo-290386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
     { name: "Tokyo", imageUrl: "" },
     { name: "Paris", imageUrl: "" },
     { name: "London", imageUrl: "" },
