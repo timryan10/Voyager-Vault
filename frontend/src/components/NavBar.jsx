@@ -1,10 +1,8 @@
 import {Link} from "react-router-dom";
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-// import Modal from 'react-bootstrap/Modal';
 import RegForm from '../forms/RegForm';
 import LoginForm from "../forms/LoginForm";
-// import SearchBar from "./SearchBar";
 
 
 function NavBar(){
@@ -19,7 +17,7 @@ function NavBar(){
         <div>
           <header>
             <nav className="navigation">
-              <h1 className="website-title">Voyager Vault</h1>
+              <h1>Voyager Vault</h1>
               <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/countries">Search Countries</Link></li>

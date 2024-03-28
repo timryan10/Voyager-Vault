@@ -12,6 +12,7 @@ function RegForm({show, handleClose}){
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [country, setCountry] = useState('')
+    const [password, setPassword] = useState('')
 
     const clearForm = () => {
         setFirstName('');
@@ -28,6 +29,7 @@ function RegForm({show, handleClose}){
             firstName,
             lastName,
             email,
+            password,
             phoneNumber,
             city,
             state,
@@ -166,12 +168,22 @@ function RegForm({show, handleClose}){
                                 <option>WY</option>
                             </select>
                         </div>
+                    </div>
 
+                    <div className="row">
+                        <div className="form-group col-sm-6">
+                            <label className="form-label">Password:</label>
+                            <input className="form-control" type="password" id="password" name="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                            />
                         <div className="form-group col-md-6">
                             <label>Country</label>
                             <input type="text" className="form-control" value={country}
                                 onChange={(e) => setCountry(e.target.value)} id="inputCountry"/>
                         </div>
+                    </div>
                     </div>
                         
                 </Modal.Body>

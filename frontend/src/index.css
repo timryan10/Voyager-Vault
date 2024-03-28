@@ -1,21 +1,16 @@
-.navigation {
-    display:inline-flex;
- 
+nav {
+    /* display: inline-flex; */
+    justify-content: space-between;
+    width: 100%;
 }
-nav ul {
-    list-style-type: none;
-    color: #f2f2f2;
-    text-decoration: none;
-    font-size: 17px;
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
+
+header {
+    width: 100%;
 }
 
 nav ul {
     list-style-type: none;
     text-decoration: none;
-    font-size: 15px;
 }
 
 nav li:not(:last-child) {
@@ -25,6 +20,7 @@ nav li:not(:last-child) {
 nav li {
     display: inline;
     padding: 0 .5em;
+    font-size: 12px;
 }
 
 nav a {
@@ -33,8 +29,17 @@ nav a {
     color: green;
 }
 
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 35px;
+}
+
 nav a:hover {
     color: black;
+}
+
+.titleText {
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .formButton {
@@ -65,9 +70,9 @@ nav a:hover {
 }
 
 /* styling for circle image hover */
-.container {
+/* .container {
     margin-top: 60px;
-}
+} */
 
 .image-tiles:hover .image {
     opacity: 0.3;
@@ -128,6 +133,7 @@ h3 {
     display: flex;
     justify-content: center;
     margin-top: 40px;
+    font-family:'Times New Roman', Times, serif;
 }
 
 .subpage-image {
@@ -138,21 +144,44 @@ h3 {
     backface-visibility: hidden;
 }
 
-.destination-message-main-title{
-text-align: left;
-font-weight: bold;
-font-size: 30px;
-font-family: Almarai;
-padding-left: 20px;
+.carousel-item img {
+    max-width: 100%;
+    min-height: auto;
 }
 
-.destination-message{
-font-size:25px;
-font-family: Almarai;
-padding-left: 20px;
-color: green;
+@media (min-width: 992px) {
+    .carousel-item img {
+      height: 450px; /* Adjust the height for larger screens */
+    }
 }
 
-.popularCities{
-text-align: center;
+.our-mission {
+    text-align: center;
+    padding-top: 30px;
+    font-family: Playfair Display;
+    font-size: 20px;
 }
+
+@media (max-width: 480px) {
+    /* mobile devices */
+}
+
+@media (max-width: 768px) {
+    /* tablet/iPad devices */
+    
+}
+
+
+
+/* .navigation {
+    display: inline-flex;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    left: 0;
+} */
