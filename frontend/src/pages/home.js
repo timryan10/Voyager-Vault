@@ -1,6 +1,4 @@
-import React from 'react';
-import NavBar from '../components/NavBar'
-import SearchBar from '../components/SearchBar';
+//import React from 'react';
 import {Link} from "react-router-dom";
 
 const Home = () => {
@@ -8,9 +6,6 @@ const React = require('react')
 
 return (
     <div>    
-        <div>
-            <NavBar />
-        </div>
         <div>
             <img className="banner-img" src="https://www.odysseys-unlimited.com/wp-content/uploads/2023/05/Lead-AdobeStock_290053056-scaled.jpeg" alt="Ireland Odysseys Unlimited by Irina Schmidt on adobe stock photos" />
             <h3>Your possibilities are endless. See what voyages await you!</h3>

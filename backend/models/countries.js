@@ -5,7 +5,7 @@ const countrySchema = new Schema({
     name: { type: String, required: true },
     capital: { type: String },
     population: { type: Number },
-    flag: { type: String } // URL to the flag image
+    flag: { type: String } 
 });
 
 const Country = mongoose.model('Country', countrySchema);

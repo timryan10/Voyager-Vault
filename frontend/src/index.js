@@ -7,7 +7,7 @@ import CurrentUserProvider from "./contexts/CurrentUser";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <CurrentUserProvider> {/* Wrap the entire application with CurrentUserProvider */}
+      <CurrentUserProvider>
         <App />
       </CurrentUserProvider>
     </BrowserRouter>

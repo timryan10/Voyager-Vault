@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CountryCard from './CountryCard';
-import axios from 'axios'; // Import axios for making HTTP requests
+import axios from 'axios';
 
 function SearchBar() {
     const [query, setQuery] = useState('');
