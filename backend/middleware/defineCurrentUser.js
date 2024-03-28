@@ -1,8 +1,8 @@
-const { model } = require("mongoose");
-const db = require("../models");
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
+import User from '../models/user.js'; 
 
-const { User } = db;
+
+
 
 async function defineCurrentUser(req, res, next) {
     try {
@@ -23,4 +23,4 @@ async function defineCurrentUser(req, res, next) {
     }
 }
 
-module.exports = defineCurrentUser
+export default defineCurrentUser;
