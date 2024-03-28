@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import NavBar from '../components/NavBar';
-import Card from 'react-bootstrap/Card';
-import Confetti from 'react-confetti';
+import React, { useState, useEffect } from "react";
+import NavBar from "../components/NavBar";
+import Card from "react-bootstrap/Card";
+import Confetti from "react-confetti";
 
 function Destination() {
   const [randomCountry, setRandomCountry] = useState(null);
@@ -12,11 +12,11 @@ function Destination() {
   useEffect(() => {
     const fetchCountries = async () => {
       try {
-        const response = await fetch('https://restcountries.com/v3.1/all');
+        const response = await fetch("https://restcountries.com/v3.1/all");
         const data = await response.json();
         setResults(data);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
 
@@ -30,29 +30,56 @@ function Destination() {
       setRandomCountry(selectedCountry);
       setIsButtonDisabled(true);
       setShowMessage(true);
-      setTimeout(() => setShowMessage(false), 5000); 
+      setTimeout(() => setShowMessage(false), 5000);
     }
   };
 
   return (
     <div>
       <NavBar />
-      <div style={{ textAlign: 'center', marginTop: '50px' }}>
-        <p className='destination-title'>Choosing a destination for your next vacation can be challenging</p>
-        <p className='destination-message'>Let us help you</p>
-        {!randomCountry && (
-        <button type="button" class="btn btn-dark" disabled={isButtonDisabled} onClick={generateRandomCountry}>Pick my next destination</button> 
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
+        {!randomCountry && !showMessage && (
+          <div>
+            <p className="destination-title">
+              Choosing a destination for your next vacation can be challenging
+            </p>
+            <p className="destination-message">Let us help you</p>
+          </div>
         )}
-        {showMessage && <p className='destination-message'></p>}
+        {!randomCountry && (
+          <button
+            type="button"
+            className="btn btn-dark"
+            disabled={isButtonDisabled}
+            onClick={generateRandomCountry}
+          >
+            Pick my next destination
+          </button>
+        )}
+        {randomCountry && (
+          <p className="destination-message">Your next destination is:</p>
+        )}
+        {showMessage && <p className="destination-message"></p>}
       </div>
 
-
       {randomCountry && (
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}>
-          <Card className="destination-cards" style={{ width: '18rem' }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "50px",
+          }}
+        >
+          <Card className="destination-cards" style={{ width: "18rem" }}>
             <Card.Body>
               <Card.Title>{randomCountry.name.common}</Card.Title>
-              {randomCountry.flags && <Card.Img variant="top" src={randomCountry.flags.svg} alt="Flag" />}
+              {randomCountry.flags && (
+                <Card.Img
+                  variant="top"
+                  src={randomCountry.flags.svg}
+                  alt="Flag"
+                />
+              )}
               <Card.Text>Capital: {randomCountry.capital}</Card.Text>
               <Card.Text>Population: {randomCountry.population}</Card.Text>
             </Card.Body>
