@@ -51,14 +51,14 @@ function LoginForm({show, handleClose}){
                 {/* <h2>Log in to your personal account with Voyager Vault</h2> */}
                 <p>Welcome back! We are excited to help you track adventures and discover new wonders on your next voyage!</p>
 
-                <div class="form-group">
+                <div className="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
-                    <small id="emailHelp" class="form-text text-muted">* We'll never share your email with anyone else.</small>
+                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+                    <small id="emailHelp" className="form-text text-muted">* We'll never share your email with anyone else.</small>
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
+                    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
                 </div>
                 
             </Modal.Body>

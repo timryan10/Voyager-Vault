@@ -29,6 +29,17 @@ nav a {
     color: green;
 }
 
+#navbarSupportedContent {
+    display: flex;
+    align-items: vertical;
+}
+
+#navbarSupportedContent ul {
+    display: flex;
+    align-items: vertical;
+    flex-flow: wrap;
+}
+
 h1 {
     font-family: 'Times New Roman', Times, serif;
     font-size: 35px;
