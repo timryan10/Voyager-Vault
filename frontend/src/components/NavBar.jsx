@@ -4,10 +4,13 @@ import Button from 'react-bootstrap/Button';
 import RegForm from '../forms/RegForm';
 import LoginForm from "../forms/LoginForm";
 import { CurrentUser } from "../contexts/CurrentUser";
+//import Image from 'react-bootstrap/Image';
+import React from 'react';
+import logo from '../assets/Voyager-Vault-logo2.png';
+import 'bootstrap';
 
 function NavBar() {
     const { currentUser, setCurrentUser } = useContext(CurrentUser);
-
 
     const handleLogout = async () => {
         try {
@@ -37,16 +40,22 @@ function NavBar() {
 
     return (
         <div>
-            <header>
-                <nav className="navigation">
-                    <h1>Voyager Vault</h1>
-                    <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/countries">Search Countries</Link></li>
-                        <li><Link to="/wishlist">My Wishlist</Link></li>
-                        <li><Link to="/destination">Destinations</Link></li>
-                    </ul>
-                    <div>
+          <header>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+              <div className="container-fluid">
+                <a className="navbar-brand" href="/">
+                  <img src={`${logo}`} height="90" alt="Voyager Vault company logo" />
+                </a>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarTogglerDemo01"> 
+                  <ul className="navbar-brand me-auto mb-2 mb-lg-1">
+                    <li className="nav-item active"><Link to="/countries">Search Countries</Link></li>
+                    <li className="nav-item active"><Link to="/wishlist">My Wishlist</Link></li>
+                    <li className="nav-item active"><Link to="/destination">Destinations</Link></li>
+                  </ul>
+                  <div>
                         {isLoggedIn ? (
                             <>
                                 <p>Welcome, {currentUser.firstname}</p>
@@ -59,10 +68,12 @@ function NavBar() {
                             </>
                         )}
                     </div>
-                </nav>
-            </header>
-            <RegForm show={show} handleClose={handleClose} />
-            <LoginForm show={showLogin} handleClose={handleCloseLogin} />
+                </div>
+              </div>
+            </nav>
+          </header> 
+          <RegForm show={show} handleClose={handleClose}/>
+          <LoginForm show={showLogin} handleClose={handleCloseLogin}/>
         </div>
     );
 }
