@@ -6,17 +6,20 @@ import Home from "./pages/home";
 import Countries from "./pages/countries";
 import Wishlist from "./pages/wishlist";
 import Destination from "./pages/destinations";
+import CurrentUserProvider from './contexts/CurrentUser';
 
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path={"/"} element={<Home />} />
-        <Route path={"/countries"} element={<Countries />} />
-        <Route path={"/destination"} element={<Destination />} />
-        <Route path={"/wishlist"} element={<Wishlist />} />
-      </Routes>
+      <CurrentUserProvider>
+        <Routes>
+          <Route path={"/"} element={<Home />} />
+          <Route path={"/countries"} element={<Countries />} />
+          <Route path={"/destination"} element={<Destination />} />
+          <Route path={"/wishlist"} element={<Wishlist />} />
+        </Routes>
+      </CurrentUserProvider>
     </div>
   );
 }

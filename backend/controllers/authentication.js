@@ -25,4 +25,26 @@ router.post('/login', async (req, res) => {
     }
 });
 
+router.get('/profile', async (req, res) => {
+    res.json(req.currentUser)
+    try {
+        const [authenticationMethod, token] = req.headers.authorization.split('')
+        
+        if(authenticationMethod == 'Bearer') {
+            const result = await jwt.decode(process.env.JWT_SECRET, token)
+
+            const { id } = result.value
+
+            let user = await User.findOne({
+                where: {
+                    userId: id
+                }
+            })
+            res.json(user)
+        }
+    } catch (error) {
+        res.json(null)
+    }
+})
+
 export default router;

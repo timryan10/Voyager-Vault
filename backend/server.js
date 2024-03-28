@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import userController from './controllers/user.js';
 import mongoose from "mongoose";
 import authenticationController from './controllers/authentication.js';
+const defineCurrentUser = require('./middleware/defineCurrentUser');
 
 dotenv.config()
 
@@ -25,6 +26,7 @@ app.use(cors({
 app.use(express.json());
 app.use('/user', userController)
 app.use('/authentication', authenticationController)
+app.use(defineCurrentUser)
 
 
 // start the Express server
