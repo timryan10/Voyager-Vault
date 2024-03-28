@@ -31,6 +31,9 @@ const Home = () => {
         return () => clearInterval(interval);
     }, [slides.length]); // Include slides.length in the dependency array
 
+    const handleIndicatorClick = (index) => {
+      setCurrentSlide(index)
+    }
     return (
         <div>    
             <div>
@@ -64,6 +67,7 @@ const Home = () => {
                         href="#carouselExampleControls"
                         role="button"
                         data-slide="next"
+                        onClick={()=> handleIndicatorClick((currentSlide + 1) % slides.length)}
                     >
                         <span className="carousel-control-next-icon" aria-hidden="true"></span>
                         <span className="sr-only">Next</span>

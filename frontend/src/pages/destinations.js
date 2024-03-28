@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import Confetti from 'react-confetti'; // Import Confetti component from a library
+import Confetti from 'react-confetti';
 
 function Destination() {
   const [randomCountry, setRandomCountry] = useState(null);

@@ -29,6 +29,17 @@ nav a {
     color: green;
 }
 
+#navbarSupportedContent {
+    display: flex;
+    align-items: vertical;
+}
+
+#navbarSupportedContent ul {
+    display: flex;
+    align-items: vertical;
+    flex-flow: wrap;
+}
+
 h1 {
     font-family: 'Times New Roman', Times, serif;
     font-size: 35px;
@@ -133,7 +144,7 @@ h3 {
     display: flex;
     justify-content: center;
     margin-top: 40px;
-    font-family:'Times New Roman', Times, serif;
+    font-family: Georgia, serif;
 }
 
 .subpage-image {
