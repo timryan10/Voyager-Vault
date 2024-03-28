@@ -36,9 +36,6 @@ const slides = [
 return (
     <div>    
         <div>
-            <NavBar />
-        </div>
-        <div>
             <div className="carousel slide" data-ride="carousel">
             <div className="carousel-inner">
                 {slides.map((slide, index) => (
