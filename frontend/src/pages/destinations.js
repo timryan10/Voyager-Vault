@@ -1,53 +1,58 @@
-import React, {useState} from 'react';
-import NavBar from '../components/NavBar';
-import Loading from '../components/loading';
+import React, { useState, useEffect } from 'react';
+import NavBar from '../components/NavBar'
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
-const Destination = () => {
-  const [chosenCity, setChosenCity] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
- 
-  const popularCities = [
-    { name: "New York", imageUrl: "https://images.pexels.com/photos/290386/pexels-photo-290386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
-    { name: "Tokyo", imageUrl: "" },
-    { name: "Paris", imageUrl: "" },
-    { name: "London", imageUrl: "" },
-    { name: "Dubai", imageUrl: "" },
-    { name: "Singapore", imageUrl: "" },
-    { name: "Rome", imageUrl: "" },
-    { name: "Bangkok", imageUrl: "" },
-    { name: "Sydney", imageUrl: "" },
-    { name: "Istanbul", imageUrl: "" }
-  ];
 
-  const pickDestinationAtRandom = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      const index = Math.floor(Math.random() * popularCities.length);
-      setChosenCity(popularCities[index]);
-      setIsLoading(false);
-    }, 3000)
-  }
+function Destination() {
+  const [randomCountry, setRandomCountry] = useState(null);
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    const fetchCountries = async () => {
+      try {
+        const response = await fetch('https://restcountries.com/v3.1/all');
+        const data = await response.json();
+        setResults(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchCountries();
+  }, []);
+
+  const generateRandomCountry = () => {
+    if (results.length > 0) {
+      const randomIndex = Math.floor(Math.random() * results.length);
+      setRandomCountry(results[randomIndex]);
+    }
+  };
 
   return (
-    <div> 
+    <div>
       <div>
-        <NavBar />
+            <NavBar />
       </div>
-      <div>
-        <h2 className='destination-message-main-title'>Deciding on your next destination can be challenging</h2>
-      </div>
-      <p className='destination-message'>Let us help you decide</p>
-      {isLoading && <Loading/>}
-      {chosenCity && !isLoading && 
-      <>
-        <h1 className='d-inline'>{chosenCity.name}</h1> <button className='ms-3' onClick={pickDestinationAtRandom}>Pick a Location For me</button> 
-        {chosenCity.imageUrl && <img src={chosenCity.imageUrl} alt={chosenCity.name}/>}
-      </>
-      }
-      {!chosenCity && <button onClick={pickDestinationAtRandom}>Pick a Location For me</button>}
-    </div> 
+      {/* Button to generate a random country */}
+      <Button onClick={generateRandomCountry}>Generate Random Country</Button>
+
+      {/* Render the randomly generated country card */}
+      {randomCountry && (
+        <div>
+          <Card style={{ width: '18rem' }}>
+            <Card.Body>
+              <Card.Title>{randomCountry.name.common}</Card.Title>
+              {randomCountry.flags && <Card.Img variant="top" src={randomCountry.flags.svg} alt="Flag" />}
+              <Card.Text>Capital: {randomCountry.capital}</Card.Text>
+              <Card.Text>Population: {randomCountry.population}</Card.Text>
+              {/* Add more details as needed */}
+            </Card.Body>
+          </Card>
+        </div>
+      )}
+    </div>
   );
 }
 
 export default Destination;
-

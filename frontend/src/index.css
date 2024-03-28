@@ -151,7 +151,8 @@ h3 {
 
 @media (min-width: 992px) {
     .carousel-item img {
-      height: 450px; /* Adjust the height for larger screens */
+        height: 550px; /* Adjust the height for larger screens */
+        object-fit: cover;
     }
 }
 
