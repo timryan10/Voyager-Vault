@@ -18,14 +18,14 @@ function CurrentUserProvider({ children }) {
                 });
                 const user = await response.json();
                 setCurrentUser(user);
-                console.log(currentUser)
-                console.log("!!!!!!!")
+                
+                
             } catch (error) {
                 console.error(error);
             }
         };
         getLoggedInUser();
-    }, []);
+    }, [currentUser]);
     window.setCurrentUser = setCurrentUser
     // Pass currentUser and setCurrentUser to the context value
     return (

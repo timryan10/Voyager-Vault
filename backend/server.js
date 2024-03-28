@@ -5,6 +5,8 @@ import dotenv from 'dotenv';
 import userController from './controllers/user.js';
 import mongoose from "mongoose";
 import authenticationController from './controllers/authentication.js';
+const defineCurrentUser = require('./middleware/defineCurrentUser')
+
 
 dotenv.config()
 
@@ -21,6 +23,7 @@ mongoose.connect(process.env.ATLAS_URI).then(() => {
 app.use(cors({
   origin: 'http://localhost:3000',
 }));
+app.use(defineCurrentUser)
 
 app.use(express.json());
 app.use('/user', userController)

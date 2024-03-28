@@ -11,9 +11,16 @@ function NavBar() {
     const { currentUser } = useContext(CurrentUser);
 
     const handleLogout = async () => {
-        await localStorage.clear();
-        window.location.reload();
-    };
+      try {
+          // Clear token from localStorage
+          localStorage.clear();
+          // Redirect to home page
+          window.location.href = '/';
+      } catch (error) {
+          console.error('Error logging out:', error);
+      }
+  };
+  
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);

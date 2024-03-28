@@ -1,3 +1,4 @@
+const { model } = require("mongoose");
 const db = require("../models");
 const jwt = require('jsonwebtoken');
 
@@ -22,4 +23,4 @@ async function defineCurrentUser(req, res, next) {
     }
 }
 
-module.exports = defineCurrentUser;
+module.exports = defineCurrentUser

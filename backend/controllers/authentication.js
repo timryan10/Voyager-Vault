@@ -26,25 +26,27 @@ router.post('/login', async (req, res) => {
 });
 
 router.get('/profile', async (req, res) => {
-    res.json(req.currentUser)
     try {
-        const [authenticationMethod, token] = req.headers.authorization.split('')
+        const [authenticationMethod, token] = req.headers.authorization.split(' ');
 
-        if(authenticationMethod == 'Bearer') {
-            const result = await jwt.decode(process.env.JWT_SECRET, token)
+        if (authenticationMethod === 'Bearer') {
+            const result = jwt.verify(token, process.env.JWT_SECRET);
 
-            const { id } = result.value
+            const userId = result.userId;
 
-            let user = await User.findOne({
-                where: {
-                    userId: id
-                }
-            })
-            res.json(user)
+            const user = await User.findOne({ _id: userId });
+
+            if (user) {
+                res.json(user);
+            } else {
+                res.status(404).json({ message: 'User not found' });
+            }
+        } else {
+            res.status(401).json({ message: 'Invalid authentication method' });
         }
     } catch (error) {
-        res.json(null)
+        res.status(500).json({ message: 'Internal Server Error' });
     }
-})
+});
 
 export default router;
