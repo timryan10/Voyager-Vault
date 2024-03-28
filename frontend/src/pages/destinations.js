@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import Confetti from 'react-confetti';
 
 function Destination() {
@@ -41,7 +40,9 @@ function Destination() {
       <div style={{ textAlign: 'center', marginTop: '50px' }}>
         <p className='destination-title'>Choosing a destination for your next vacation can be challenging</p>
         <p className='destination-message'>Let us help you</p>
-        <button type="button" class="btn btn-dark" disabled={isButtonDisabled} onClick={generateRandomCountry}>Pick my next destination</button>
+        {!randomCountry && (
+        <button type="button" class="btn btn-dark" disabled={isButtonDisabled} onClick={generateRandomCountry}>Pick my next destination</button> 
+        )}
         {showMessage && <p className='destination-message'></p>}
       </div>
 
