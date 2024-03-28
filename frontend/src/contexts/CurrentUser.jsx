@@ -1,11 +1,13 @@
-// CurrentUserProvider.jsx
 import { createContext, useState, useEffect } from "react";
 
+// Create the context
 export const CurrentUser = createContext();
 
 function CurrentUserProvider({ children }) {
+    // Initialize state for currentUser
     const [currentUser, setCurrentUser] = useState(null);
 
+    // Fetch the logged-in user data on component mount
     useEffect(() => {
         const getLoggedInUser = async () => {
             try {
@@ -14,19 +16,18 @@ function CurrentUserProvider({ children }) {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`
                     }
                 });
-                //console.log("this is children", children)
                 const user = await response.json();
                 setCurrentUser(user);
-                //console.log("this is the user", user)
+                console.log(currentUser)
+                console.log("!!!!!!!")
             } catch (error) {
                 console.error(error);
             }
         };
         getLoggedInUser();
     }, []);
-
     window.setCurrentUser = setCurrentUser
-
+    // Pass currentUser and setCurrentUser to the context value
     return (
         <CurrentUser.Provider value={{ currentUser, setCurrentUser }}>
             {children}
@@ -35,3 +36,4 @@ function CurrentUserProvider({ children }) {
 }
 
 export default CurrentUserProvider;
+

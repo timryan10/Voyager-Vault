@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { CurrentUser } from "../contexts/CurrentUser";
 
 function LoginForm({ show, handleClose }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const { setCurrentUser } = useContext(CurrentUser)
 
     const clearForm = () => {
         setEmail('');
@@ -32,10 +34,12 @@ function LoginForm({ show, handleClose }) {
             }
             return response.json();
         })
-        .then(resp => {
-            console.log(resp);
+        .then(data => {
+            console.log(data);
             alert('Welcome, Voyager!');
             clearForm();
+            setCurrentUser(data.user);
+            localStorage.setItem('token', data.token);
         })
         .catch(error => {
             setError(error.message);
