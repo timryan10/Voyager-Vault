@@ -1,38 +1,38 @@
-import React, { useState, useEffect } from "react";
-import NavBar from "../components/NavBar";
-import Card from "react-bootstrap/Card";
-import Confetti from "react-confetti";
+import React, { useState, useEffect } from "react"
+import NavBar from "../components/NavBar"
+import Card from "react-bootstrap/Card"
+import Confetti from "react-confetti"
 
 function Destination() {
-  const [randomCountry, setRandomCountry] = useState(null);
-  const [results, setResults] = useState([]);
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  const [showMessage, setShowMessage] = useState(false);
+  const [randomCountry, setRandomCountry] = useState(null)
+  const [results, setResults] = useState([])
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false)
+  const [showMessage, setShowMessage] = useState(false)
 
   useEffect(() => {
     const fetchCountries = async () => {
       try {
-        const response = await fetch("https://restcountries.com/v3.1/all");
-        const data = await response.json();
-        setResults(data);
+        const response = await fetch("https://restcountries.com/v3.1/all")
+        const data = await response.json()
+        setResults(data)
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching data:", error)
       }
     };
 
-    fetchCountries();
-  }, []);
+    fetchCountries()
+  }, [])
 
   const generateRandomCountry = () => {
     if (results.length > 0 && !isButtonDisabled) {
-      const randomIndex = Math.floor(Math.random() * results.length);
-      const selectedCountry = results[randomIndex];
-      setRandomCountry(selectedCountry);
-      setIsButtonDisabled(true);
-      setShowMessage(true);
-      setTimeout(() => setShowMessage(false), 5000);
+      const randomIndex = Math.floor(Math.random() * results.length)
+      const selectedCountry = results[randomIndex]
+      setRandomCountry(selectedCountry)
+      setIsButtonDisabled(true)
+      setShowMessage(true)
+      setTimeout(() => setShowMessage(false), 5000)
     }
-  };
+  }
 
   return (
     <div>
@@ -70,7 +70,7 @@ function Destination() {
             marginTop: "50px",
           }}
         >
-          <Card className="destination-cards" style={{ width: "18rem" }}>
+          <Card className="destination-cards">
             <Card.Body>
               <Card.Title>{randomCountry.name.common}</Card.Title>
               {randomCountry.flags && (
@@ -88,7 +88,7 @@ function Destination() {
       )}
       {randomCountry && <Confetti />}
     </div>
-  );
+  )
 }
 
-export default Destination;
+export default Destination
