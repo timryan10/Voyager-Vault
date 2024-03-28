@@ -34,6 +34,10 @@ function Destination() {
       <div>
             <NavBar />
       </div>
+    <div>
+      <p className='destination-title'>Choosing a destination for your next vacation can be challenging</p>
+      <p className='destination-message'>Let us help you make the right choice</p>
+    </div>
       {/* Button to generate a random country */}
       <Button onClick={generateRandomCountry}>Generate Random Country</Button>
 

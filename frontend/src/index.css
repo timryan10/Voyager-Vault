@@ -172,8 +172,13 @@ h3 {
     
 }
 
+.destination-title {
+font-size: 30px;
+}
 
-
+.destination-message {
+font-size: 25px;
+}
 /* .navigation {
     display: inline-flex;
     font-size: 17px;
