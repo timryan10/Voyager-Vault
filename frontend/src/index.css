@@ -173,12 +173,29 @@ h3 {
 }
 
 .destination-title {
-font-size: 30px;
+font-size: 35px;
+margin-left: 25px;
+margin-top: 20px;
+font-weight: bold;
+font-family: 'Times New Roman', Times, serif;
 }
 
 .destination-message {
-font-size: 25px;
+margin-top: -20px;
+margin-left: 25px;
+font-size: 40px;
+font-weight: bold;
+font-family: 'Times New Roman', Times, serif;
+color:green;
 }
+
+.destination-button {
+align-items: center;
+background-color: black;
+color:white;
+}
+
+
 /* .navigation {
     display: inline-flex;
     font-size: 17px;
