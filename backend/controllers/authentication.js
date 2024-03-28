@@ -1,44 +1,28 @@
-const router = require('express').Router()
-const db = require('../models')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
-const { default: User } = require('../models/user')
+import express from "express";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import User from "../models/user.js";
 
-const { User } = db
+const router = express.Router();
 
-router.post('/', async (req, res) => {
-    let user = await User.findOne({
-        where: {email: req.body.email}
-    })
+// Login user
+router.post('/login', async (req, res) => {
+    const { email, password } = req.body;
 
-    if(!user || !await bcrypt.compare(req.body.password, user.passwordDigest)){
-        res.status(404).json({
-            message: `Couldn't find user with provided email`
-        })
-    }else {
-        const result = await jwt.encode(process.env.JWT_SECRET, {id: user.userId})
-        res.json({user: user, token: result.value})
-    }
-})
-
-router.get('/profile', async (req, res) => {
-    res.json(req.currentUser)
     try {
-        const [authenticationMethod, token] = req.headers.authorization.split('')
+        const user = await User.findOne({ email });
 
-        if (authenticationMethod == 'Bearer'){
-            const result = await jwt.decode(process.env.JWT_SECRET, token)
-
-            const { id } = result.value
-
-            let user = await User.findOne({
-                where: {
-                    userId: id
-                }
-            })
-            res.json(user)
+        if (!user || !bcrypt.compareSync(password, user.password)) {
+            return res.status(401).json({ message: 'Invalid email or password' });
         }
+
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+        res.json({ token, user: { _id: user._id, email: user.email } });
     } catch (error) {
-        res.json(null)
+        console.error(error);
+        res.status(500).json({ message: 'Internal Server Error' });
     }
-})
+});
+
+export default router;

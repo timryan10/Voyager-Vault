@@ -16,7 +16,6 @@ return (
             <h3>Your possibilities are endless. See what voyages await you!</h3>
             <div class="homeBlock">
                 <div class="countrySearch">
-                    <SearchBar />
                 </div>
             </div>
             <div className="image-tiles d-flex justify-content-center align-items-center">
