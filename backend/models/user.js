@@ -9,14 +9,8 @@ const userSchema = new mongoose.Schema({
     lastName: {type: String, required: true},
     country: {type: String, required: false},
     city: {type: String, required: false},
-    wishlist: [{ 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Country' 
-    }],
-    destinations: [{ 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Country' 
-    }]
+    wishlist: {type : Array},
+    destinations:{type: Array}
 });
 
 userSchema.pre("save", async function(next) {

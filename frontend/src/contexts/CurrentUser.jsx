@@ -17,6 +17,7 @@ function CurrentUserProvider({ children }) {
                     }
                 });
                 const user = await response.json();
+
                 console.log(user)
                 setCurrentUser(user);
             } catch (error) {

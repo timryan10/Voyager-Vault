@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
-const Schema = mongoose.Schema;
+import { Schema } from "mongoose";
 
 const countrySchema = new Schema({
+    userId:{type: String, required:true},
     name: { type: String, required: true },
     capital: { type: String },
     population: { type: Number },
@@ -10,4 +11,4 @@ const countrySchema = new Schema({
 
 const Country = mongoose.model('Country', countrySchema);
 
-module.exports = Country;
+export default Country;
