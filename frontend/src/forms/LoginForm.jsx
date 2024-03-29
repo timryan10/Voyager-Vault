@@ -41,6 +41,7 @@ function LoginForm({ show, handleClose, props }) {
             setCurrentUser(data.user);
             localStorage.setItem('token', data.token);
             localStorage.setItem('user', data.user)
+            localStorage.setItem('userId', data.user._id)
             handleClose();
             
         })

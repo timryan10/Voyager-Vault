@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { CurrentUser } from "../contexts/CurrentUser";
 import CountryCard from './CountryCard';
 import axios from 'axios';
+import { generalRequest } from '../httpService';
 
 function SearchBar() {
+    const { currentUser } = useContext(CurrentUser);
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
 
@@ -27,9 +30,20 @@ function SearchBar() {
 
     const handleAddToWishlist = async (country) => {
         try {
+
+            const data ={
+                    userId:currentUser._id,
+                    name:country?.name?.common,
+                    capital:country?.capital[0],
+                    population:country?.population,
+                    flag: country?.flags.svg
+            }
+            
             // Send a request to your backend API
-            const response = await axios.post('/country/wishlist/add', { country });
+          const response = await generalRequest.post('/country/wishlist/add', data);
             // Optionally, update state or show a success message
+            console.log(response)
+            //console.log(response)
         } catch (error) {
             console.error('Error adding to wishlist:', error);
             // Optionally, show an error message
@@ -38,9 +52,18 @@ function SearchBar() {
     
     const handleAddToDestinations = async (country) => {
         try {
+        //     const countryId ={
+        //         name:country?.name?.common,
+        //         capital:country?.capital,
+        //         population:country?.population,
+        //         flag: country?.flags?.svg
+        // }
             // Send a request to your backend API
-            const response = await axios.post('/country/destinations/add', { country });
+           const response = await generalRequest.post('/country/destinations/add', { userId: currentUser._id, countryId:country });
             // Optionally, update state or show a success message
+            console.log(response)
+            console.log({ userId: currentUser._id, countryId:country })
+            //console.log(countryId )
         } catch (error) {
             console.error('Error adding to destinations:', error);
             // Optionally, show an error message

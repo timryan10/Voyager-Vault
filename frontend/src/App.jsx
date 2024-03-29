@@ -11,6 +11,8 @@ import NavBar from './components/NavBar';
 
 
 function App() {
+
+  const userId = localStorage.getItem('userId')
   return (
     <div className="App">
       <NavBar/>
