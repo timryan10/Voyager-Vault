@@ -15,7 +15,7 @@ const app = express();
 mongoose.connect(process.env.ATLAS_URI).then(() => {
     console.log('successfully connected');
 }).catch((e) => {
-    console.log('not connected')
+    console.log('not connected');
 })
 
 // Allow requests from 'http://localhost:3000'

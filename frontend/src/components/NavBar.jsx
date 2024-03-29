@@ -50,15 +50,20 @@ function NavBar() {
                   <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo01"> 
-                  <ul className="navbar-brand me-auto mb-2 mb-lg-1">
-                    <li className="nav-item active"><Link to="/countries">Search Countries</Link></li>
-                    <li className="nav-item active"><Link to="/wishlist">My Wishlist</Link></li>
-                    <li className="nav-item active"><Link to="/destination">Destinations</Link></li>
-                  </ul>
-                  <div>
+                  <ul className="navbar-nav align-items-center ms-auto mb-2 mb-lg-1">
+                    <li className="nav-item text-end d-flex align-items-center">
+                      <Link to="/countries">Search Countries</Link>
+                    </li>
+                    <li className="nav-item text-end d-flex align-items-center">
+                      <Link to="/wishlist">My Wishlist</Link>
+                    </li>
+                    <li className="nav-item text-end d-flex align-items-center">
+                      <Link to="/destination">Destinations</Link>
+                    </li>
+                    <li className="nav-item d-flex align-items-center justify-content-end mt-3 mt-lg-0">
                         {isLoggedIn ? (
                             <>
-                                <p>Welcome, {currentUser.firstname}</p>
+                                <div>Welcome, {currentUser.firstname}</div>
                                 <Button className="formButton" variant="danger" onClick={handleLogout}>Log Out</Button>
                             </>
                         ) : (
@@ -67,7 +72,8 @@ function NavBar() {
                                 <Button className="formButton" variant="success" onClick={handleShowLogin}>Log In</Button>
                             </>
                         )}
-                    </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </nav>
