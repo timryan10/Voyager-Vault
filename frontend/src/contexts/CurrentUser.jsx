@@ -17,15 +17,14 @@ function CurrentUserProvider({ children }) {
                     }
                 });
                 const user = await response.json();
-                //console.log(user)
+                console.log(user)
                 setCurrentUser(user);
             } catch (error) {
                 console.error(error);
             }
         };
         getLoggedInUser();
-    }, []);
-    window.setCurrentUser = setCurrentUser
+    }, []); // Empty dependency array to run the effect only once
 
     // Pass currentUser and setCurrentUser to the context value
     return (
@@ -36,4 +35,3 @@ function CurrentUserProvider({ children }) {
 }
 
 export default CurrentUserProvider;
-

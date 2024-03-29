@@ -4,19 +4,32 @@ import User from '../models/user.js';
 async function defineCurrentUser(req, res, next) {
     try {
         const authHeader = req.headers.authorization;
-        if (authHeader && authHeader.startsWith('Bearer ')) {
-            const token = authHeader.split(' ')[1];
+        if (!authHeader || !authHeader.startsWith('Bearer ')) {
+            req.currentUser = null; 
+            return next();
+        }
+        
+        const token = authHeader.split(' ')[1];
+        try {
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
             const { id } = decoded;
-            const user = await User.findById(user);
+            const user = await User.findById(id);
+            if (!user) {
+                req.currentUser = null; 
+                return next();
+            }
             req.currentUser = user;
-        } else {
-            req.currentUser = null;
+            return next();
+        } catch (err) {
+            if (err.name === 'JsonWebTokenError') {
+                req.currentUser = null; 
+                return next();
+            } else {
+                return next(err); 
+            }
         }
-        next();
     } catch (err) {
-        req.currentUser = null;
-        next(err);
+        next(err); 
     }
 }
 

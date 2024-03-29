@@ -3,8 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { CurrentUser } from "../contexts/CurrentUser";
 
-function LoginForm({ show, handleClose }) {
-
+function LoginForm({ show, handleClose, props }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -42,10 +41,10 @@ function LoginForm({ show, handleClose }) {
             clearForm();
             setCurrentUser(data.user);
             localStorage.setItem('token', data.token);
+            localStorage.setItem('user', data.user)
+            handleClose();
+            
         })
-        .catch(error => {
-            setError(error.message);
-        });
     }
     
 
@@ -63,9 +62,9 @@ function LoginForm({ show, handleClose }) {
                 <Modal.Body>
                     <p>Welcome back! We are excited to help you track adventures and discover new wonders on your next voyage!</p>
 
-                    <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">Email address</label>
-                        <input
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input
                             type="email"
                             className="form-control"
                             id="exampleInputEmail1"
@@ -74,11 +73,11 @@ function LoginForm({ show, handleClose }) {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
-                        <small id="emailHelp" className="form-text text-muted">* We'll never share your email with anyone else.</small>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="exampleInputPassword1">Password</label>
-                        <input
+                    <small id="emailHelp" class="form-text text-muted">* We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input
                             type="password"
                             className="form-control"
                             id="exampleInputPassword1"
@@ -86,12 +85,12 @@ function LoginForm({ show, handleClose }) {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                    </div>
-                    {error && <p>{error}</p>}
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>Close</Button>
-                    <Button onClick={submitForm} variant="primary">Log In</Button>
+                </div>
+                
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>Close</Button>
+                <Button onClick={submitForm} variant="primary">Log In</Button>
                 </Modal.Footer>
             </Modal>
         </form>

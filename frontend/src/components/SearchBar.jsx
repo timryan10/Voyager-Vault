@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CountryCard from './CountryCard';
-import axios from 'axios'; // Import axios for making HTTP requests
+import axios from 'axios';
 
 function SearchBar() {
     const [query, setQuery] = useState('');
@@ -27,21 +27,26 @@ function SearchBar() {
 
     const handleAddToWishlist = async (country) => {
         try {
-            // Add to wishlist logic
-            console.log('Added to wishlist:', country.name.common);
+            // Send a request to your backend API
+            const response = await axios.post('/country/wishlist/add', { country });
+            // Optionally, update state or show a success message
         } catch (error) {
             console.error('Error adding to wishlist:', error);
+            // Optionally, show an error message
         }
     };
-
+    
     const handleAddToDestinations = async (country) => {
         try {
-            // Add to destinations logic
-            console.log('Added to destinations:', country.name.common);
+            // Send a request to your backend API
+            const response = await axios.post('/country/destinations/add', { country });
+            // Optionally, update state or show a success message
         } catch (error) {
             console.error('Error adding to destinations:', error);
+            // Optionally, show an error message
         }
     };
+    
 
     return (
         <div>

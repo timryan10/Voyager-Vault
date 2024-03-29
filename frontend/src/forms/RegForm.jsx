@@ -1,4 +1,3 @@
-// This form allows a user to register for a new account
 import React, {useState} from "react";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -8,7 +7,7 @@ function RegForm({show, handleClose}){
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
+    // const [phoneNumber, setPhoneNumber] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [country, setCountry] = useState('')
@@ -18,7 +17,7 @@ function RegForm({show, handleClose}){
         setFirstName('');
         setLastName('')
         setEmail('')
-        setPhoneNumber('')
+        // setPhoneNumber('')
         setCity('')
         setState('')
         country('')
@@ -30,7 +29,7 @@ function RegForm({show, handleClose}){
             lastName,
             email,
             password,
-            phoneNumber,
+            // phoneNumber,
             city,
             state,
             country,
@@ -96,13 +95,13 @@ function RegForm({show, handleClose}){
                         </div>
                     </div>
 
-                    <div>
+                    {/* <div>
                         <div className="form-group col-sm-6">
                             <label className="form-label">Phone Number:</label>
                             <input className="form-control" type="text" id="phoneNumber" name="phone-number" value={phoneNumber}
                             onChange={(e) => setPhoneNumber(e.target.value)}/>
                         </div>
-                    </div>
+                    </div> */}
                         
                     <div className="row">
                         <div className="form-group col-md-6">
