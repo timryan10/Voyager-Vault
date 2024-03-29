@@ -137,7 +137,7 @@ h3 {
     display: flex;
     justify-content: center;
     margin-top: 40px;
-    font-family: Georgia, serif;
+    font-family: playfiar display;
 }
 
 .subpage-image {
@@ -163,7 +163,6 @@ h3 {
 .our-mission {
     text-align: center;
     padding-top: 30px;
-    font-family: Playfair Display;
     font-size: 20px;
 }
 
@@ -204,9 +203,22 @@ color:white;
     margin-top: 50px;
   }
   
-  .destination-cards{
+  .destination-cards {
     width: 18rem;
 
   }
+.footer {
+    text-align: center;
+    margin-top: auto;
+}
+  .footer-text {
+    text-align: center;
+    align-items: center;
+    margin-top: auto;
+  }
 
-
+  .footer-container {
+    text-align: center;
+    align-items: center;
+    margin-top:auto;
+  }
