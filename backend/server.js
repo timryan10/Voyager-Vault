@@ -27,7 +27,7 @@ app.use(defineCurrentUser)
 app.use(express.json());
 app.use('/user', userController)
 app.use('/authentication', authenticationController)
-app.use('/country', countryController); // Mount the country controller under the /country base URL path
+app.use('/country', countryController);
 
 // start the Express server
 app.listen(PORT, () => {

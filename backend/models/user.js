@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
     country: {type: String, required: false},
     city: {type: String, required: false},
     wishlist: {type : Array},
-    destinations:{type: Array}
+    destination:{type: Array}
 });
 
 userSchema.pre("save", async function(next) {
