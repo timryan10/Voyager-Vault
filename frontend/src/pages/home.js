@@ -32,7 +32,7 @@ const Home = () => {
     }, [slides.length]); // Include slides.length in the dependency array
 
     const handleIndicatorClick = (index) => {
-      setCurrentSlide(index)
+        setCurrentSlide(index)
     }
     return (
         <div>    
@@ -73,7 +73,7 @@ const Home = () => {
             </div>
         <div>
             <h3>Unlocking Travel Stories. Inspiring Destinations.</h3>
-            <div className="image-tiles d-flex justify-content-center align-items-center">
+            <div className="image-tiles d-flex justify-content-center align-items-center gap-2 flex-wrap">
                 <div className="circle-image position-relative">
                     <a href="/pages/countries"><img className="rounded-circle" src="https://st2.depositphotos.com/3591429/5996/i/450/depositphotos_59969927-stock-photo-different-countries-united-with-flags.jpg" alt="Country flags from depositphoto.com" /></a>
                     <div className="middle">
