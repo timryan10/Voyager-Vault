@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import NavBar from "../components/NavBar"
 import Card from "react-bootstrap/Card"
 import Confetti from "react-confetti"
 
@@ -9,6 +8,18 @@ function Destination() {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false)
   const [showMessage, setShowMessage] = useState(false)
 
+
+
+  const generateRandomCountry = () => {
+    if (results.length > 0 && !isButtonDisabled) {
+      const randomIndex = Math.floor(Math.random() * results.length)
+      const selectedCountry = results[randomIndex]
+      setRandomCountry(selectedCountry)
+      setIsButtonDisabled(true)
+      setShowMessage(true)
+      setTimeout(() => setShowMessage(false), 5000)
+    }
+  }
   useEffect(() => {
     const fetchCountries = async () => {
       try {
@@ -23,20 +34,8 @@ function Destination() {
     fetchCountries()
   }, [])
 
-  const generateRandomCountry = () => {
-    if (results.length > 0 && !isButtonDisabled) {
-      const randomIndex = Math.floor(Math.random() * results.length)
-      const selectedCountry = results[randomIndex]
-      setRandomCountry(selectedCountry)
-      setIsButtonDisabled(true)
-      setShowMessage(true)
-      setTimeout(() => setShowMessage(false), 5000)
-    }
-  }
-
   return (
     <div>
-      <NavBar />
       <div style={{ textAlign: "center", marginTop: "50px" }}>
         {!randomCountry && !showMessage && (
           <div>

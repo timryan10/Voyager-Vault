@@ -1,22 +1,43 @@
-import {Link} from "react-router-dom";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import RegForm from '../forms/RegForm';
 import LoginForm from "../forms/LoginForm";
-import Image from 'react-bootstrap/Image';
+import { CurrentUser } from "../contexts/CurrentUser";
+//import Image from 'react-bootstrap/Image';
 import React from 'react';
 import logo from '../assets/Voyager-Vault-logo2.png';
 import 'bootstrap';
 
+function NavBar() {
+    const { currentUser, setCurrentUser } = useContext(CurrentUser);
 
-function NavBar(){
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+    const handleLogout = async () => {
+        try {
+            // Clear token from localStorage
+            localStorage.removeItem('token');
 
-  const [showLogin, setShowLogin] = useState(false);
-  const handleCloseLogin = () => setShowLogin(false);
-  const handleShowLogin = () => setShowLogin(true);
+            // Update currentUser state to reflect logout
+            setCurrentUser(null);
+
+            // Redirect to login page or update UI accordingly
+            window.location.href = '/';
+        } catch (error) {
+            console.error('Error logging out:', error);
+        }
+    };
+
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const [showLogin, setShowLogin] = useState(false);
+    const handleCloseLogin = () => setShowLogin(false);
+    const handleShowLogin = () => setShowLogin(true);
+
+    // Updated conditional rendering based on the presence of currentUser and a key property like id, email, or firstName
+    const isLoggedIn = currentUser && currentUser.email;
+
     return (
         <div>
           <header>
@@ -35,9 +56,18 @@ function NavBar(){
                     <li className="nav-item active"><Link to="/destination">Destinations</Link></li>
                   </ul>
                   <div>
-                    <Button className="formButton" variant="secondary" onClick={handleShow}>Register</Button>
-                    <Button className="formButton" variant="success" onClick={handleShowLogin}>Log In</Button>
-                  </div>
+                        {isLoggedIn ? (
+                            <>
+                                <p>Welcome, {currentUser.firstname}</p>
+                                <Button className="formButton" variant="danger" onClick={handleLogout}>Log Out</Button>
+                            </>
+                        ) : (
+                            <>
+                                <Button className="formButton" variant="secondary" onClick={handleShow}>Register</Button>
+                                <Button className="formButton" variant="success" onClick={handleShowLogin}>Log In</Button>
+                            </>
+                        )}
+                    </div>
                 </div>
               </div>
             </nav>
@@ -45,7 +75,7 @@ function NavBar(){
           <RegForm show={show} handleClose={handleClose}/>
           <LoginForm show={showLogin} handleClose={handleCloseLogin}/>
         </div>
-    )        
-};
+    );
+}
 
 export default NavBar;

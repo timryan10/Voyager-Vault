@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Card from 'react-bootstrap/Card';
+import CountryCard from './CountryCard';
+import axios from 'axios';
 
 function SearchBar() {
     const [query, setQuery] = useState('');
@@ -12,9 +13,8 @@ function SearchBar() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch(`https://restcountries.com/v3.1/name/${query}`);
-            const data = await response.json();
-            setResults(data);
+            const response = await axios.get(`https://restcountries.com/v3.1/name/${query}`);
+            setResults(response.data);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -25,6 +25,29 @@ function SearchBar() {
         setResults([]);
     };
 
+    const handleAddToWishlist = async (country) => {
+        try {
+            // Send a request to your backend API
+            const response = await axios.post('/country/wishlist/add', { country });
+            // Optionally, update state or show a success message
+        } catch (error) {
+            console.error('Error adding to wishlist:', error);
+            // Optionally, show an error message
+        }
+    };
+    
+    const handleAddToDestinations = async (country) => {
+        try {
+            // Send a request to your backend API
+            const response = await axios.post('/country/destinations/add', { country });
+            // Optionally, update state or show a success message
+        } catch (error) {
+            console.error('Error adding to destinations:', error);
+            // Optionally, show an error message
+        }
+    };
+    
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -34,17 +57,15 @@ function SearchBar() {
                     {query && <button type="button" className="btn btn-secondary" onClick={handleClear}>Clear</button>}
                 </div>
             </form>
-            <div>
-                {results.map((country) => (
-                    <Card key={country.name.common} style={{ width: '18rem' }}>
-                        <Card.Body>
-                            <Card.Title>{country.name.common}</Card.Title>
-                            {country.flags && <Card.Img variant="top" src={country.flags.svg} alt="Flag" />}
-                            <Card.Text>Capital: {country.capital}</Card.Text>
-                            <Card.Text>Population: {country.population}</Card.Text>
-                            {/* Add more details as needed */}
-                        </Card.Body>
-                    </Card>
+            <div className="row">
+                {results.map(country => (
+                    <div className="col-md-4" key={country.name.common}>
+                        <CountryCard 
+                            country={country} 
+                            handleAddToWishlist={handleAddToWishlist}
+                            handleAddToDestinations={handleAddToDestinations}
+                        />
+                    </div>
                 ))}
             </div>
         </div>
