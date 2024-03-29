@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import CountryCard from './CountryCard';
 import axios from 'axios';
+import { CurrentUser } from "../contexts/CurrentUser";
 
 function SearchBar() {
+    const { currentUser } = useContext(CurrentUser);
+
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
 
@@ -28,7 +31,17 @@ function SearchBar() {
     const handleAddToWishlist = async (country) => {
         try {
             // Send a request to your backend API
-            const response = await axios.post('/country/wishlist/add', { country });
+            console.log("country", country)
+            console.log(currentUser)
+            const response = await axios.post('http://localhost:5050/country/wishlist/add', { 
+                country: {
+                    name: country.name.common,
+                    capital: country.capital[0],
+                    population: country.population,
+                    flag: country.flags.png
+                },
+                userId: currentUser._id,
+            });
             // Optionally, update state or show a success message
         } catch (error) {
             console.error('Error adding to wishlist:', error);
@@ -39,7 +52,7 @@ function SearchBar() {
     const handleAddToDestinations = async (country) => {
         try {
             // Send a request to your backend API
-            const response = await axios.post('/country/destinations/add', { country });
+            const response = await axios.post('http://localhost:5050/country/destinations/add', { country });
             // Optionally, update state or show a success message
         } catch (error) {
             console.error('Error adding to destinations:', error);
