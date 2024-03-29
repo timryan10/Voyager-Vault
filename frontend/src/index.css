@@ -1,5 +1,4 @@
 nav {
-    /* display: inline-flex; */
     justify-content: space-between;
     width: 100%;
 }
@@ -59,10 +58,11 @@ nav a:hover {
 
 .banner-img {
     width: 100%;
-    height: 600px;
-    object-fit: cover;
+   
 }
-
+.website-title {
+    font-family: Almarai;
+}
 .rounded-circle {
     width: 300px;
     height: 300px;
@@ -77,11 +77,6 @@ nav a:hover {
 .image-tiles {
     padding: 25px;
 }
-
-/* styling for circle image hover */
-/* .container {
-    margin-top: 60px;
-} */
 
 .image-tiles:hover .image {
     opacity: 0.3;
@@ -110,6 +105,24 @@ nav a:hover {
     padding: 16px 32px;
 }
 
+.carousel-item img {
+    max-width: 100%;
+    min-height: auto;
+  }
+  
+  @media (min-width: 992px) {
+    .carousel-item img {
+      height: 450px; 
+    }
+  }
+
+  .our-mission{
+   text-align: center;
+   padding-top: 30px;
+   font-family: Playfair Display;
+   font-size: 30px;
+  }
+
 .homeBlock {
     margin-top: 20px;
     display: flex;
@@ -124,7 +137,7 @@ h3 {
     display: flex;
     justify-content: center;
     margin-top: 40px;
-    font-family:'Times New Roman', Times, serif;
+    font-family: playfiar display;
 }
 
 .subpage-image {
@@ -150,7 +163,6 @@ h3 {
 .our-mission {
     text-align: center;
     padding-top: 30px;
-    font-family: Playfair Display;
     font-size: 20px;
 }
 
@@ -163,17 +175,50 @@ h3 {
     
 }
 
+.destination-title {
+font-size: 35px;
+margin-left: 25px;
+margin-top: 20px;
+font-weight: bold;
+font-family: 'Times New Roman', Times, serif;
+}
 
+.destination-message {
+margin-top: -20px;
+margin-left: 25px;
+font-size: 40px;
+font-weight: bold;
+font-family: 'Times New Roman', Times, serif;
+color:green;
+}
 
-/* .navigation {
-    display: inline-flex;
-    font-size: 17px;
-    display: flex;
+.destination-button {
+align-items: center;
+background-color: black;
+color:white;
+}
+
+.destination-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .destination-cards {
+    width: 18rem;
+
+  }
+.footer {
+    text-align: center;
+    margin-top: auto;
+}
+  .footer-text {
+    text-align: center;
     align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    left: 0;
-} */
+    margin-top: auto;
+  }
+
+  .footer-container {
+    text-align: center;
+    align-items: center;
+    margin-top:auto;
+  }

@@ -1,74 +1,76 @@
 import React, { useState, useEffect } from 'react';
-import NavBar from '../components/NavBar'
-import {Link} from "react-router-dom";
+import Footer from '../components/Footer'
+import { Link } from "react-router-dom";
 
 const Home = () => {
-const React = require('react')
-const [currentSlide, setCurrentSlide] = useState(0);
-const slides = [
-    {
-    src: "https://www.odysseys-unlimited.com/wp-content/uploads/2023/05/Lead-AdobeStock_290053056-scaled.jpeg",
-    alt: "Picture of a castle in Ireland from pexels.com",
-    },
-    {
-    src: "https://images.pexels.com/photos/3727255/pexels-photo-3727255.jpeg",
-    alt: "Architecture in Santorini, Greece from pexels.com",
-    },
-    {
-    src: "https://images.pexels.com/photos/3601453/pexels-photo-3601453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    alt: "Sunset at beach from pexels.com",
-    },
-    {
-    src: "https://images.pexels.com/photos/869258/pexels-photo-869258.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    alt: "Travelers climbing snowy mountain from pexels.com",
-    },
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const slides = [
+        {
+            src: "https://www.odysseys-unlimited.com/wp-content/uploads/2023/05/Lead-AdobeStock_290053056-scaled.jpeg",
+            alt: "Picture of a castle in Ireland from pexels.com",
+        },
+        {
+            src: "https://images.pexels.com/photos/3727255/pexels-photo-3727255.jpeg",
+            alt: "Architecture in Santorini, Greece from pexels.com",
+        },
+        {
+            src: "https://images.pexels.com/photos/3601453/pexels-photo-3601453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            alt: "Sunset at beach from pexels.com",
+        },
+        {
+            src: "https://images.pexels.com/photos/869258/pexels-photo-869258.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            alt: "Travelers climbing snowy mountain from pexels.com",
+        },
     ];
 
     useEffect(() => {
         const interval = setInterval(() => {
-        setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+            setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
         }, 5000);
 
         return () => clearInterval(interval);
-        }, []);
+    }, [slides.length]); // Include slides.length in the dependency array
 
-
-return (
-    <div>    
-        <div>
-            <div className="carousel slide" data-ride="carousel">
-            <div className="carousel-inner">
-                {slides.map((slide, index) => (
-                <div
-                    key={index}
-                    className={`carousel-item ${
-                        index === currentSlide ? "active" : ""
-                    }`}
-                >
-                    <img className="d-block w-100" src={slide.src} alt={slide.alt} />
+    const handleIndicatorClick = (index) => {
+      setCurrentSlide(index)
+    }
+    return (
+        <div>    
+            <div>
+                <div className="carousel slide" data-ride="carousel">
+                    <div className="carousel-inner">
+                        {slides.map((slide, index) => (
+                            <div
+                                key={index}
+                                className={`carousel-item ${
+                                    index === currentSlide ? "active" : ""
+                                }`}
+                            >
+                                <img className="d-block w-100" src={slide.src} alt={slide.alt} />
+                            </div>
+                        ))}
+                    </div>
+                    <a
+                        className="carousel-control-prev"
+                        href="#carouselExampleControls"
+                        role="button"
+                        data-slide="prev"
+                    >
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="sr-only">Previous</span>
+                    </a>
+                    <a
+                        className="carousel-control-next"
+                        href="#carouselExampleControls"
+                        role="button"
+                        data-slide="next"
+                        onClick={()=> handleIndicatorClick((currentSlide + 1) % slides.length)}
+                    >
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="sr-only">Next</span>
+                    </a>
                 </div>
-                ))}
             </div>
-            <a
-                class="carousel-control-prev"
-                href="#carouselExampleControls"
-                role="button"
-                data-slide="prev"
-            >
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a
-                class="carousel-control-next"
-                href="#carouselExampleControls"
-                role="button"
-                data-slide="next"
-            >
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-            </div>
-        </div>
         <div>
             <h3>Unlocking Travel Stories. Inspiring Destinations.</h3>
             <div className="image-tiles d-flex justify-content-center align-items-center">
@@ -98,11 +100,9 @@ return (
                 </div>
             </div>
         </div>
+        <Footer />
     </div>
 );
 }
 
-export default Home
-
-
-
+export default Home;
