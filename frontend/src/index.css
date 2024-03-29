@@ -7,23 +7,8 @@ header {
     width: 100%;
 }
 
-nav ul {
-    list-style-type: none;
-    text-decoration: none;
-}
-
-nav li:not(:last-child) {
-    border-right: 1px solid black;
-}
-
-nav li {
-    display: inline;
-    padding: 0 .5em;
-    font-size: 12px;
-}
-
 nav a {
-    font-size: 1.5em;
+    font-size: 1.25em;
     text-decoration: none;
     color: green;
 }
@@ -58,11 +43,12 @@ nav a:hover {
 
 .banner-img {
     width: 100%;
-   
+
 }
 .website-title {
     font-family: Almarai;
 }
+
 .rounded-circle {
     width: 300px;
     height: 300px;
@@ -73,10 +59,10 @@ nav a:hover {
     background-color: darkred;
     backface-visibility: hidden;
 }
-
+/* 
 .image-tiles {
     padding: 25px;
-}
+} */
 
 .image-tiles:hover .image {
     opacity: 0.3;
@@ -108,20 +94,20 @@ nav a:hover {
 .carousel-item img {
     max-width: 100%;
     min-height: auto;
-  }
-  
-  @media (min-width: 992px) {
-    .carousel-item img {
-      height: 450px; 
-    }
-  }
+}
 
-  .our-mission{
-   text-align: center;
-   padding-top: 30px;
-   font-family: Playfair Display;
-   font-size: 30px;
-  }
+@media (min-width: 992px) {
+    .carousel-item img {
+    height: 450px; 
+    }
+}
+
+.our-mission{
+    text-align: center;
+    padding-top: 30px;
+    font-family: Playfair Display;
+    font-size: 30px;
+}
 
 .homeBlock {
     margin-top: 20px;
@@ -168,11 +154,26 @@ h3 {
 
 @media (max-width: 480px) {
     /* mobile devices */
+
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
     /* tablet/iPad devices */
-    
+    .nav-item {
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 992px) {
+    /* tablet/iPad devices */
+    .nav-item {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .nav-item:not(:last-child) {
+        border-right: 1px solid black;
+        height: 1.5rem;
+    }
 }
 
 .destination-title {
