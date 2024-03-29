@@ -1,3 +1,5 @@
+import React from 'react';
+import Footer from '../components/Footer'
 import React, { useEffect, useState } from 'react';
 import { generalRequest } from '../httpService';
 //import { CurrentUser } from '../contexts/CurrentUser';
@@ -36,6 +38,10 @@ const Wishlist = () => {
         <a href="/pages/destinations"><img className="subpage-image" src="https://images.squarespace-cdn.com/content/v1/5f0780262fb7130a5ea990a7/1609721381739-1W27VHBAJHCN4W69TRGT/travel-list-banner.png?format=2500w" alt="Wishlist from postcardsfromaplanner.com" /></a>
       </div>
       <h3>Cute tagline goes here!</h3>
+      <div>
+      <Footer />
+      </div>
+    </div>   
       {data?.map((wish) => (
 
         <div className="card" style={{ width: '20rem' }}>
@@ -54,4 +60,6 @@ const Wishlist = () => {
   );
 }
 
+
 export default Wishlist;
+
