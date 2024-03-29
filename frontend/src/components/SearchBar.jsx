@@ -31,45 +31,40 @@ function SearchBar() {
     const handleAddToWishlist = async (country) => {
         try {
 
-            const data ={
-                    userId:currentUser._id,
-                    name:country?.name?.common,
-                    capital:country?.capital[0],
-                    population:country?.population,
-                    flag: country?.flags.svg
+            const data = {
+                userId: currentUser._id,
+                name: country?.name?.common,
+                capital: country?.capital[0],
+                population: country?.population,
+                flag: country?.flags.svg
             }
-            
+
             // Send a request to your backend API
-          const response = await generalRequest.post('/country/wishlist/add', data);
-            // Optionally, update state or show a success message
+            const response = await generalRequest.post('/country/wishlist/add', data);
             console.log(response)
-            //console.log(response)
+        
         } catch (error) {
             console.error('Error adding to wishlist:', error);
-            // Optionally, show an error message
         }
     };
-    
+
     const handleAddToDestinations = async (country) => {
         try {
-        //     const countryId ={
-        //         name:country?.name?.common,
-        //         capital:country?.capital,
-        //         population:country?.population,
-        //         flag: country?.flags?.svg
-        // }
+            const data = {
+                userId: currentUser._id,
+                name: country?.name?.common,
+                capital: country?.capital[0],
+                population: country?.population,
+                flag: country?.flags.svg
+            }
             // Send a request to your backend API
-           const response = await generalRequest.post('/country/destinations/add', { userId: currentUser._id, countryId:country });
-            // Optionally, update state or show a success message
+            const response = await generalRequest.post('/country/destination/add', data);
             console.log(response)
-            console.log({ userId: currentUser._id, countryId:country })
-            //console.log(countryId )
         } catch (error) {
-            console.error('Error adding to destinations:', error);
-            // Optionally, show an error message
+            console.error('Error adding to destination:', error);
         }
     };
-    
+
 
     return (
         <div>
@@ -83,8 +78,8 @@ function SearchBar() {
             <div className="row">
                 {results.map(country => (
                     <div className="col-md-4" key={country.name.common}>
-                        <CountryCard 
-                            country={country} 
+                        <CountryCard
+                            country={country}
                             handleAddToWishlist={handleAddToWishlist}
                             handleAddToDestinations={handleAddToDestinations}
                         />
