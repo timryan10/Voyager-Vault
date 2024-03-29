@@ -5,7 +5,8 @@ import dotenv from 'dotenv';
 import userController from './controllers/user.js';
 import mongoose from "mongoose";
 import authenticationController from './controllers/authentication.js';
-import defineCurrentUser from "./middleware/defineCurrentUser.js";
+import defineCurrentUser from './middleware/defineCurrentUser.js';
+
 
 
 dotenv.config()

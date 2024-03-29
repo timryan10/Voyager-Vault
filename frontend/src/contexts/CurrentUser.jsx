@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 // Create the context
 export const CurrentUser = createContext();
@@ -17,16 +17,16 @@ function CurrentUserProvider({ children }) {
                     }
                 });
                 const user = await response.json();
+                //console.log(user)
                 setCurrentUser(user);
-                
-                
             } catch (error) {
                 console.error(error);
             }
         };
         getLoggedInUser();
-    }, [currentUser]);
+    }, []);
     window.setCurrentUser = setCurrentUser
+
     // Pass currentUser and setCurrentUser to the context value
     return (
         <CurrentUser.Provider value={{ currentUser, setCurrentUser }}>

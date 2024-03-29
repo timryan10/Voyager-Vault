@@ -1,8 +1,5 @@
-import mongoose from "mongoose";
-import User from "../models/user"
-import jwt from "jsonwebtoken"
-
-//const { User } = db;
+import jwt from 'jsonwebtoken';
+import User from '../models/user.js'; 
 
 async function defineCurrentUser(req, res, next) {
     try {
@@ -11,7 +8,7 @@ async function defineCurrentUser(req, res, next) {
             const token = authHeader.split(' ')[1];
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
             const { id } = decoded;
-            const user = await User.findById(id);
+            const user = await User.findById(user);
             req.currentUser = user;
         } else {
             req.currentUser = null;
@@ -23,4 +20,4 @@ async function defineCurrentUser(req, res, next) {
     }
 }
 
-export default defineCurrentUser
+export default defineCurrentUser;
