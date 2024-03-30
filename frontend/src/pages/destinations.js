@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Card from "react-bootstrap/Card"
 import Confetti from "react-confetti"
+import Footer from '../components/Footer'
 
 function Destination() {
   const [randomCountry, setRandomCountry] = useState(null)
@@ -33,61 +34,65 @@ function Destination() {
 
     fetchCountries()
   }, [])
-
-  return (
+  
+return (
     <div>
-      <div style={{ textAlign: "center", marginTop: "50px" }}>
-        {!randomCountry && !showMessage && (
-          <div>
-            <p className="destination-title">
-              Choosing a destination for your next vacation can be challenging
-            </p>
-            <p className="destination-message">Let us help you</p>
+      <div>
+        <div style={{ textAlign: "center", marginTop: "50px" }}>
+          {!randomCountry && !showMessage && (
+            <div>
+              <p className="destination-title">
+                Choosing a destination for your next vacation can be challenging
+              </p>
+              <p className="destination-message">Let us help you</p>
+            </div>
+          )}
+          {!randomCountry && (
+            <button
+              type="button"
+              className="btn btn-dark"
+              disabled={isButtonDisabled}
+              onClick={generateRandomCountry}
+            >
+              Pick my next destination
+            </button>
+          )}
+          {randomCountry && (
+            <p className="destination-message">Your next destination is:</p>
+          )}
+          {showMessage && <p className="destination-message"></p>}
+        </div>
+
+        {randomCountry && (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "50px",
+            }}
+          >
+            <Card className="destination-cards">
+              <Card.Body>
+                <Card.Title>{randomCountry.name.common}</Card.Title>
+                {randomCountry.flags && (
+                  <Card.Img
+                    variant="top"
+                    src={randomCountry.flags.svg}
+                    alt="Flag"
+                  />
+                )}
+                <Card.Text>Capital: {randomCountry.capital}</Card.Text>
+                <Card.Text>Population: {randomCountry.population}</Card.Text>
+                <a href="javascript: location.reload();">CLick to try again!</a>
+              </Card.Body>
+            </Card>
           </div>
         )}
-        {!randomCountry && (
-          <button
-            type="button"
-            className="btn btn-dark"
-            disabled={isButtonDisabled}
-            onClick={generateRandomCountry}
-          >
-            Pick my next destination
-          </button>
-        )}
-        {randomCountry && (
-          <p className="destination-message">Your next destination is:</p>
-        )}
-        {showMessage && <p className="destination-message"></p>}
+        {randomCountry && <Confetti />}
       </div>
-
-      {randomCountry && (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "50px",
-          }}
-        >
-          <Card className="destination-cards">
-            <Card.Body>
-              <Card.Title>{randomCountry.name.common}</Card.Title>
-              {randomCountry.flags && (
-                <Card.Img
-                  variant="top"
-                  src={randomCountry.flags.svg}
-                  alt="Flag"
-                />
-              )}
-              <Card.Text>Capital: {randomCountry.capital}</Card.Text>
-              <Card.Text>Population: {randomCountry.population}</Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-      )}
-      {randomCountry && <Confetti />}
     </div>
   )
 }
 
 export default Destination
+
