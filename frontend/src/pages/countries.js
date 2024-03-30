@@ -45,52 +45,48 @@ const Countries = () => {
       }}>
         <h4 className="search-h4">Endless possibilities. See what awaits you!</h4>
       </div>
-      <div className="homeBlock split-container">
-        <div style={{ 
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "30px"
-            }}>
-        <SearchBar />
-        </div>
-        <div className="randomizer-background" style={{ 
-          display: "block",
-          textAlign: "center", 
-          marginTop: "50px", 
-          marginBottom: "50px",
-          // display: "flex"
-          }}>
-          {!randomCountry && !showMessage && (
-            <div>
-              <p className="destination-title">Need a little inspiration?</p>
-              <p className="destination-message">Let us help you!</p>
-            </div>
-          )}
-          {!randomCountry && (
-            <button
-              type="button"
-              className="btn btn-dark"
-              disabled={isButtonDisabled}
-              onClick={generateRandomCountry}
-            >
-              Pick my next destination.
-            </button>
-          )}
-          <div style={{ 
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "30px"
-            }}>
+
+      <div className="block-parent">
+        <div className="block-left-color">
+          <div className="block-left-child">
+            <SearchBar />
           </div>
         </div>
-        {randomCountry && (
+        <div className="block-right-color">
+          <div className="block-right-child">
+            <div style={{ 
+              textAlign: "center", 
+              marginTop: "30px", 
+              marginBottom: "30px",
+            }}>
+            {!randomCountry && !showMessage && (
+              <div>
+                <p className="destination-title">Need a little inspiration?</p>
+                <p className="destination-message">Let us help you!</p>
+              </div>
+            )}
+            {!randomCountry && (
+              <button
+                type="button"
+                className="btn btn-dark"
+                disabled={isButtonDisabled}
+                onClick={generateRandomCountry}
+              >
+                Pick my next destination.
+              </button>
+            )}
+            </div>
+            <div style={{ 
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}>
+            </div>
+          {randomCountry && (
           <div 
             style={{
               // display: "flex",
               justifyContent: "center",
-              marginTop: "50px",
             }}
           >
             <Card className="destination-cards">
@@ -110,9 +106,11 @@ const Countries = () => {
               </Card.Body>
             </Card>
           </div>
-        )}
-        {randomCountry && <Confetti />}
+          )}
+          {randomCountry && <Confetti />}
+        </div>
       </div>
+    </div>
     </div>
   );
 };
