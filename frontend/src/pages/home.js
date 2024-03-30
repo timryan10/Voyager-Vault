@@ -71,7 +71,7 @@ const Home = () => {
                 </div>
             </div>
         <div>
-            <h3>Unlocking Travel Stories. Inspiring Destinations.</h3>
+            <h3 className="home-h3">Unlocking Travel Stories. Inspiring Destinations.</h3>
             <div className="image-tiles d-flex justify-content-center align-items-center gap-2 flex-wrap">
                 <div className="circle-image position-relative">
                     <a href="/pages/countries"><img className="rounded-circle" src="https://st2.depositphotos.com/3591429/5996/i/450/depositphotos_59969927-stock-photo-different-countries-united-with-flags.jpg" alt="Country flags from depositphoto.com" /></a>
