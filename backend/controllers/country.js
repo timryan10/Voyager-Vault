@@ -1,7 +1,6 @@
 import express from 'express';
 import Country from '../models/countries.js';
 import Wishlist from '../models/wishlist.js';
-import { count } from 'console';
 
 // Create a new router instance
 const router = express.Router();
@@ -33,10 +32,11 @@ router.get('/wishlist/add/:id', async (req, res) => {
 router.delete('/wishlist/delete/:id', async (req, res) => {
     try {
         const countryId = req.params.id;
-        const deletedItem = await Wishlist.findByIdAndDelete(countryId);
+        const deletedItem = await Wishlist.findById(countryId);
         if(!deletedItem) {
             return res.status(404).json({ message: 'Item not found'});
         }
+        await Wishlist.findByIdAndDelete(countryId)
         res.status(200).json({message: 'Item deleted successfully'})
     } catch (error) {
         console.error('Error deleting wishlist item:', error);

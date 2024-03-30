@@ -40,9 +40,7 @@ function SearchBar() {
             }
 
             // Send a request to your backend API
-            const response = await generalRequest.post('/country/wishlist/add', data);
-            console.log(response, "!!!")
-        
+            const response = await generalRequest.post('/country/wishlist/add', data);        
         } catch (error) {
             console.error('Error adding to wishlist:', error);
         }
@@ -58,8 +56,7 @@ function SearchBar() {
                 flag: country?.flags.svg
             }
             // Send a request to your backend API
-            const response = await generalRequest.post('http:localhost5050/country/destination/add', data);
-            console.log(response)
+            const response = await generalRequest.post('/country/destination/add', data);
         } catch (error) {
             console.error('Error adding to destination:', error);
         }

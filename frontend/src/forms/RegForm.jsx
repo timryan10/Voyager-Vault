@@ -35,7 +35,6 @@ function RegForm({show, handleClose}){
             country,
         }
 
-
         // This link needs to be updated to pull information
         fetch('http://localhost:5050/user/register',{
             method: 'POST',
@@ -46,7 +45,6 @@ function RegForm({show, handleClose}){
             body: JSON.stringify(newUser),
         }).then(response => response.json())
         .then(resp => {
-            console.log(resp)
             alert('Welcome, Voyager!');
             clearForm();
         }).catch(e => {

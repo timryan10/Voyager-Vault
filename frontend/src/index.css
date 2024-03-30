@@ -59,10 +59,6 @@ nav a:hover {
     background-color: darkred;
     backface-visibility: hidden;
 }
-/* 
-.image-tiles {
-    padding: 25px;
-} */
 
 .image-tiles:hover .image {
     opacity: 0.3;
@@ -127,7 +123,7 @@ h3 {
 }
 
 .subpage-image {
-    height: 200px;
+    height: 300px;
     object-fit: cover;
     opacity: 1;
     transition: .5s ease;
@@ -154,7 +150,6 @@ h3 {
 
 @media (max-width: 480px) {
     /* mobile devices */
-
 }
 
 @media (max-width: 991px) {
@@ -177,49 +172,64 @@ h3 {
 }
 
 .destination-title {
-font-size: 35px;
-margin-left: 25px;
-margin-top: 20px;
-font-weight: bold;
-font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    margin-left: 25px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .destination-message {
-margin-top: -20px;
-margin-left: 25px;
-font-size: 40px;
-font-weight: bold;
-font-family: 'Times New Roman', Times, serif;
-color:green;
+    margin-top: -20px;
+    margin-left: 25px;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color:green;
 }
 
 .destination-button {
-align-items: center;
-background-color: black;
-color:white;
+    align-items: center;
+    background-color: black;
+    color:white;
 }
 
 .destination-container {
     text-align: center;
     margin-top: 50px;
-  }
-  
-  .destination-cards {
-    width: 18rem;
+}
 
-  }
+.destinationDiv {
+    height: 600px;
+}
+
+.destination-cards {
+    width: 18rem;
+}
+
 .footer {
     text-align: center;
-    margin-top: auto;
+    background-color: green;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    /* width: 100%;
+    bottom: 0;
+    left: 0; */
 }
-  .footer-text {
-    text-align: center;
-    align-items: center;
-    margin-top: auto;
-  }
 
-  .footer-container {
+.footer-text {
     text-align: center;
     align-items: center;
-    margin-top:auto;
-  }
+    color: white;
+}
+
+.footer-container {
+    text-align: center;
+    align-items: center;
+    display: block;
+}
+
+.wishlist-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

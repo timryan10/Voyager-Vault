@@ -57,7 +57,7 @@ function NavBar() {
                       <Link to="/wishlist">My Wishlist</Link>
                     </li>
                     <li className="nav-item text-end d-flex align-items-center">
-                      <Link to="/destination">Destinations</Link>
+                      <Link to="/destination">Been To</Link>
                     </li>
                     <li className="nav-item d-flex align-items-center justify-content-end mt-3 mt-lg-0">
                         {isLoggedIn ? (
