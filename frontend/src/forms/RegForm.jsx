@@ -35,7 +35,6 @@ function RegForm({show, handleClose}){
             country,
         }
 
-
         // This link needs to be updated to pull information
         fetch('http://localhost:5050/user/register',{
             method: 'POST',
