@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { Schema } from "mongoose";
 
-const countrySchema = new Schema({
+const wishSchema = new Schema({
     userId:{type: String, required:true},
     name: { type: String, required: true },
     capital: { type: String },
@@ -9,6 +9,6 @@ const countrySchema = new Schema({
     flag: { type: String } 
 });
 
-const Country = mongoose.model('Country', countrySchema);
+const Wishlist = mongoose.model('wishlist', wishSchema);
 
-export default Country;
+export default Wishlist;

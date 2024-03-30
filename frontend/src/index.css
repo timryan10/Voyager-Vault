@@ -173,10 +173,10 @@ h3 {
 }
 
 .destination-title {
-font-size: 35px;
+font-size: 30px;
 margin-left: 25px;
 margin-top: 20px;
-font-weight: bold;
+/* font-weight: bold; */
 font-family: 'Times New Roman', Times, serif;
 }
 
@@ -198,24 +198,37 @@ color:white;
 .destination-container {
     text-align: center;
     margin-top: 50px;
-  }
-  
-  .destination-cards {
-    width: 18rem;
+}
 
-  }
+.destination-cards {
+    width: 18rem;
+}
+
 .footer {
     text-align: center;
-    margin-top: auto;
+    background-color: green;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    /* width: 100%;
+    bottom: 0;
+    left: 0; */
 }
-  .footer-text {
-    text-align: center;
-    align-items: center;
-    margin-top: auto;
-  }
 
-  .footer-container {
+.footer-text {
     text-align: center;
     align-items: center;
-    margin-top:auto;
-  }
+    color: white;
+}
+
+.footer-container {
+    text-align: center;
+    align-items: center;
+    display: block;
+}
+
+.wishlist-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button';
 import RegForm from '../forms/RegForm';
 import LoginForm from "../forms/LoginForm";
 import { CurrentUser } from "../contexts/CurrentUser";
-//import Image from 'react-bootstrap/Image';
 import React from 'react';
 import logo from '../assets/Voyager-Vault-logo2.png';
 import 'bootstrap';
