@@ -36,7 +36,7 @@ const Countries = () => {
 
   return (
     <div>
-      <div className="homeBlock" className="countriesDiv" style={{ 
+      <div className="homeBlock countriesDiv" style={{ 
         backgroundImage: 'url("https://images.pexels.com/photos/214574/pexels-photo-214574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")', 
         backgroundSize: 'cover', 
         backgroundPosition: 'center',

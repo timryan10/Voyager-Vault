@@ -6,29 +6,22 @@ const Destination = () => {
   const [data, setData] = useState([])
   const userId = localStorage.getItem("userId")
 
-
-  console.log(userId, "userId")
-
-
   useEffect(() => {
 
     if (userId !== '' || userId !== undefined) {
 
       const fetchDestination = async () => {
         const { data } = await generalRequest.get(`/country/destination/add/${userId}`)
-        console.log(data)
         setData(data)
-
       }
       fetchDestination()
     }
-
   }, [])
   return (
     <div>
       <div className="homeBlock destinationDiv" style={{
         backgroundImage: 'url("https://media.architecturaldigest.com/photos/6494807c22dde9e2fb285415/16:9/w_2560%2Cc_limit/GettyImages-136509187.jpg")',
-        bagkgroundSize: 'cover',
+        backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         objectFit: 'contain',

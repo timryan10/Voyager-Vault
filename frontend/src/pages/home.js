@@ -28,7 +28,7 @@ const Home = () => {
         }, 5000);
 
         return () => clearInterval(interval);
-    }, [slides.length]); // Include slides.length in the dependency array
+    }, [slides.length]);
 
     const handleIndicatorClick = (index) => {
         setCurrentSlide(index)
