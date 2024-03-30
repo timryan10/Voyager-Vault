@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Card from "react-bootstrap/Card"
 import Confetti from "react-confetti"
-import Footer from '../components/Footer'
+
 
 function Destination() {
   const [randomCountry, setRandomCountry] = useState(null)
@@ -42,9 +42,9 @@ return (
           {!randomCountry && !showMessage && (
             <div>
               <p className="destination-title">
-                Choosing a destination for your next vacation can be challenging
+                Need a little inspiration?
               </p>
-              <p className="destination-message">Let us help you</p>
+              <p className="destination-message">Let us help you!</p>
             </div>
           )}
           {!randomCountry && (
