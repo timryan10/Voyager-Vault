@@ -62,7 +62,7 @@ function NavBar() {
                     <li className="nav-item d-flex align-items-center justify-content-end mt-3 mt-lg-0">
                         {isLoggedIn ? (
                             <>
-                                <div>Welcome, {currentUser.firstName}</div>
+                                <div>Welcome, {currentUser.firstname}</div>
                                 <Button className="formButton" variant="danger" onClick={handleLogout}>Log Out</Button>
                             </>
                         ) : (

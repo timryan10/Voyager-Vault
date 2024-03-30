@@ -9,23 +9,20 @@ This is a project that lets you add countries you have been to in a list, you ca
 - [Contributing](#contributing)
 - [License](#license)
 
-## To install the necessary dependencies for the backend, run the following command:
-
-bash npm install bcrypt bcryptjs cors dotenv express express-validator jsonwebtoken mongodb mongoose
-
-## front-end
-
-axios: "^1.6.8" bootstrap: "^5.3.3" react: "^18.2.0" react-bootstrap: "^2.10.2" react-dom: "^18.2.0" react-query: "^3.39.3" react-router: "^6.22.3" react-router-dom: "^6.22.3" web-vitals: "^2.1.4"
-
 ## Usage
+
+npm start on both back and frontend.
 
 Step 1: Register and log in to your account
 
-Step 2: Search for a country, if you want to add this country to a place you wish to visit someday, add the country to your wish list. If you have already visited this country add this country to destinations!
+Step 2: Search for a country, if you want to add this country to a place you wish to visit someday, add
+the country to your wish list. If you have already visited this country add this country to destinations!
 
-Step 3: you can view your countries you added to your wishlist in the wishlist tab, and view your countries you have already visited in you destinations tab.
+Step 3: you can view your countries you added to your wishlist in the wishlist tab, and view your countries
+you have already visited in you destinations tab.
 
-Step 4: Having trouble picking your next vacation? let us pick for you. In the search tab we have a random country generator.
+Step 4: Having trouble picking your next vacation? let us pick for you. In the search tab we have a random
+country generator.
 
 ## Who Contributed
 

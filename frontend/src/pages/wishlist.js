@@ -1,10 +1,17 @@
+//import React from 'react';
+import Footer from '../components/Footer'
 import React, { useEffect, useState } from 'react';
 import { generalRequest } from '../httpService';
 import SearchBar from '../components/SearchBar';
 
 const Wishlist = () => {
   const [data, setData] = useState([])
+  //const { currentUser } = useContext(CurrentUser);
   const userId = localStorage.getItem("userId")
+
+
+  console.log(userId, "userId")
+
 
   useEffect(() => {
 
@@ -12,11 +19,13 @@ const Wishlist = () => {
 
       const fetchWishlist = async () => {
         const { data } = await generalRequest.get(`/country/wishlist/add/${userId}`)
+        console.log(data)
         setData(data)
 
       }
       fetchWishlist()
     }
+
 
   }, [])
 
@@ -57,3 +66,4 @@ const Wishlist = () => {
 
 
 export default Wishlist;
+
