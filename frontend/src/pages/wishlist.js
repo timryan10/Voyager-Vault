@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { generalRequest } from '../httpService';
-//import { CurrentUser } from '../contexts/CurrentUser';
-
 
 const Wishlist = () => {
   const [data, setData] = useState([])
-  //const { currentUser } = useContext(CurrentUser);
   const userId = localStorage.getItem("userId")
-
-
-  console.log(userId, "userId")
-
 
   useEffect(() => {
 
@@ -18,16 +11,13 @@ const Wishlist = () => {
 
       const fetchWishlist = async () => {
         const { data } = await generalRequest.get(`/country/wishlist/add/${userId}`)
-        console.log(data)
         setData(data)
 
       }
       fetchWishlist()
     }
 
-
   }, [])
-
 
   return (
     <div>
@@ -50,7 +40,7 @@ const Wishlist = () => {
             <img src={wish.flag} alt={wish.name} style={{ width: '18rem' }} />
             <p>Population: {wish.population}</p>
             <p>Capital: {wish.capital}</p>
-        {/* Other details about the country */}
+
         </div>
       </div>
       ))
