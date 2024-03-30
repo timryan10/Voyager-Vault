@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Card from "react-bootstrap/Card"
 import Confetti from "react-confetti"
-import Footer from '../components/Footer'
+
 
 function Destination() {
   const [randomCountry, setRandomCountry] = useState(null)

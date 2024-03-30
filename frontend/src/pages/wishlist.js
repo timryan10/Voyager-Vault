@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { generalRequest } from '../httpService';
-import Footer from '../components/Footer'
 //import { CurrentUser } from '../contexts/CurrentUser';
-
 
 
 const Wishlist = () => {
