@@ -45,7 +45,6 @@ function RegForm({show, handleClose}){
             body: JSON.stringify(newUser),
         }).then(response => response.json())
         .then(resp => {
-            console.log(resp)
             alert('Welcome, Voyager!');
             clearForm();
         }).catch(e => {

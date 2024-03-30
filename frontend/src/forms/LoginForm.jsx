@@ -35,7 +35,6 @@ function LoginForm({ show, handleClose, props }) {
             return response.json();
         })
         .then(data => {
-            console.log(data);
             alert('Welcome, Voyager!');
             clearForm();
             setCurrentUser(data.user);
