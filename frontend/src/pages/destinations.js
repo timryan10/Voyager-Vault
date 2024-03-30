@@ -42,7 +42,8 @@ return (
         backgroundSize: 'cover', 
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat', 
-        objectFit: 'contain' 
+        objectFit: 'contain',
+
       }}>
         <div style={{ textAlign: "center", marginTop: "50px" }}>
           {!randomCountry && !showMessage && (
