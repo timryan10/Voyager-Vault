@@ -1,6 +1,7 @@
 import express from 'express';
 import Country from '../models/countries.js';
 import Wishlist from '../models/wishlist.js';
+import { count } from 'console';
 
 // Create a new router instance
 const router = express.Router();
@@ -21,7 +22,6 @@ router.post('/wishlist/add', async (req, res) => {
 //fetch wishlist
 router.get('/wishlist/add/:id', async (req, res) => {
     try {
-
         const wishlist = await Wishlist.find({ userId: req.params.id })
         res.status(200).json(wishlist);
     } catch (error) {
@@ -29,6 +29,20 @@ router.get('/wishlist/add/:id', async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error' });
     }
 });
+
+router.delete('/wishlist/delete/:id', async (req, res) => {
+    try {
+        const countryId = req.params.id;
+        const deletedItem = await Wishlist.findByIdAndDelete(countryId);
+        if(!deletedItem) {
+            return res.status(404).json({ message: 'Item not found'});
+        }
+        res.status(200).json({message: 'Item deleted successfully'})
+    } catch (error) {
+        console.error('Error deleting wishlist item:', error);
+        res.status(500).json({message: 'Internal Server Erro'})
+    }
+})
 
 // Endpoint to add a country to the user's destinations
 router.post('/destination/add', async (req, res) => {
