@@ -47,6 +47,8 @@ Melanie: Throughout the course of this project, my main focus was UI/UX and fron
 
 Tim: For the final project my attention was more on the backend. I set up some of the skeletal structure of the backend to be tested and improved upon as the project continued such as the controllers and the routes to the database along with Charles. Most of my time was directed towards the sign up and login features of the application.
 
+Taylor: I contributed to the homepage banner by adding images and integrating a Bootstrap carousel component with indicators for smooth navigation. This feature aims to engage visitors visually and encourage further exploration. Additionally, I developed the random destination generator on the countries page, creating the generateRandomCountry() function and using a useEffect hook to pull destinations from the country cards API. This feature encourages users to discover new destinations to visit for their next vacation. I also worked closely with Melanie on the UI/UX design of our website.
+
 ## License
 
 Information about the project's license and any usage restrictions.
