@@ -37,7 +37,13 @@ function Destination() {
   
 return (
     <div>
-      <div>
+      <div className="destinationDiv" style={{ 
+        backgroundImage: `url("https://images.pexels.com/photos/214574/pexels-photo-214574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")`, 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat', 
+        objectFit: 'contain' 
+      }}>
         <div style={{ textAlign: "center", marginTop: "50px" }}>
           {!randomCountry && !showMessage && (
             <div>
@@ -83,7 +89,7 @@ return (
                 )}
                 <Card.Text>Capital: {randomCountry.capital}</Card.Text>
                 <Card.Text>Population: {randomCountry.population}</Card.Text>
-                <a href="javascript: location.reload();">CLick to try again!</a>
+                <a href="javascript: location.reload();">Click to try again!</a>
               </Card.Body>
             </Card>
           </div>

@@ -123,7 +123,7 @@ h3 {
 }
 
 .subpage-image {
-    height: 200px;
+    height: 300px;
     object-fit: cover;
     opacity: 1;
     transition: .5s ease;
@@ -150,7 +150,6 @@ h3 {
 
 @media (max-width: 480px) {
     /* mobile devices */
-
 }
 
 @media (max-width: 991px) {
@@ -173,31 +172,33 @@ h3 {
 }
 
 .destination-title {
-font-size: 30px;
-margin-left: 25px;
-margin-top: 20px;
-/* font-weight: bold; */
-font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    margin-left: 25px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .destination-message {
-margin-top: -20px;
-margin-left: 25px;
-font-size: 40px;
-font-weight: bold;
-font-family: 'Times New Roman', Times, serif;
-color:green;
+    margin-top: -20px;
+    margin-left: 25px;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color:green;
 }
 
 .destination-button {
-align-items: center;
-background-color: black;
-color:white;
+    align-items: center;
+    background-color: black;
+    color:white;
 }
 
 .destination-container {
     text-align: center;
     margin-top: 50px;
+}
+
+.destinationDiv {
+    height: 600px;
 }
 
 .destination-cards {
