@@ -15,6 +15,7 @@ function LoginForm({ show, handleClose, props }) {
     }
 
     const submitForm = () => {
+
         const userCredentials = {
             email,
             password

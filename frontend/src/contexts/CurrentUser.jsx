@@ -31,7 +31,7 @@ function CurrentUserProvider({ children }) {
         <CurrentUser.Provider value={{ currentUser, setCurrentUser }}>
             {children}
         </CurrentUser.Provider>
-    );
+    )
 }
 
 export default CurrentUserProvider;
