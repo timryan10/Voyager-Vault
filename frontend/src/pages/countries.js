@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Confetti from "react-confetti";
 import SearchBar from '../components/SearchBar';
 
-const Countries = ({ country, handleAddToWishlist, handleAddToDestinations }) => {
+const Countries = () => {
   const [randomCountry, setRandomCountry] = useState(null);
   const [results, setResults] = useState([]);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
@@ -36,15 +36,31 @@ const Countries = ({ country, handleAddToWishlist, handleAddToDestinations }) =>
 
   return (
     <div>
-      <div className="homeBlock">
-        <a href="/pages/destinations">
-          <img className="rounded-circle subpage-image" src="https://st2.depositphotos.com/3591429/5996/i/450/depositphotos_59969927-stock-photo-different-countries-united-with-flags.jpg" alt="Country flags from depositphoto.com" />
-        </a>
+      <div className="homeBlock countriesDiv"  style={{ 
+        backgroundImage: 'url("https://images.pexels.com/photos/214574/pexels-photo-214574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")', 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat', 
+        objectFit: 'contain' 
+      }}>
+        <h4 className="search-h4">Endless possibilities. See what awaits you!</h4>
       </div>
-      <h3>Your possibilities are endless. See what voyages await you!</h3>
-      <div className="homeBlock">
+      <div className="homeBlock split-container">
+        <div style={{ 
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "30px"
+            }}>
         <SearchBar />
-        <div style={{ textAlign: "center", marginTop: "50px" }}>
+        </div>
+        <div className="randomizer-background" style={{ 
+          display: "block",
+          textAlign: "center", 
+          marginTop: "50px", 
+          marginBottom: "50px",
+          // display: "flex"
+          }}>
           {!randomCountry && !showMessage && (
             <div>
               <p className="destination-title">Need a little inspiration?</p>
@@ -58,24 +74,28 @@ const Countries = ({ country, handleAddToWishlist, handleAddToDestinations }) =>
               disabled={isButtonDisabled}
               onClick={generateRandomCountry}
             >
-              Pick my next destination
+              Pick my next destination.
             </button>
           )}
-          {randomCountry && (
-            <p className="destination-message">Your next destination is:</p>
-          )}
-          {showMessage && <p className="destination-message"></p>}
+          <div style={{ 
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "30px"
+            }}>
+          </div>
         </div>
         {randomCountry && (
-          <div
+          <div 
             style={{
-              display: "flex",
+              // display: "flex",
               justifyContent: "center",
               marginTop: "50px",
             }}
           >
             <Card className="destination-cards">
               <Card.Body>
+              <p className="destination-message">Your next destination is:</p>
                 <Card.Title>{randomCountry.name.common}</Card.Title>
                 {randomCountry.flags && (
                   <Card.Img
@@ -87,24 +107,14 @@ const Countries = ({ country, handleAddToWishlist, handleAddToDestinations }) =>
                 <Card.Text>Capital: {randomCountry.capital}</Card.Text>
                 <Card.Text>Population: {randomCountry.population}</Card.Text>
                 <a href="javascript: location.reload();">Click to try again!</a>
-                <button className="btn btn-success" onClick={() => handleAddToDestinations(country)}>Add to Been To</button>
-                <button className="btn btn-info" onClick={() => handleAddToWishlist(country)}>Add to Wishlist</button>
               </Card.Body>
             </Card>
           </div>
         )}
-        {randomCountry && <Confetti onAnimationEnd={3000}/>}
+        {randomCountry && <Confetti />}
       </div>
     </div>
   );
 };
-
-{/* <div className="destinationDiv" style={{ 
-        backgroundImage: url("https://images.pexels.com/photos/214574/pexels-photo-214574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"), 
-        backgroundSize: 'cover', 
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat', 
-        objectFit: 'contain' 
-      }}></div> */}
 
 export default Countries;

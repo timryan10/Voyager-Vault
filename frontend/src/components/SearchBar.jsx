@@ -65,7 +65,9 @@ function SearchBar() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} style={{
+                borderWidth: "1px solid white"
+            }}>
                 <div className="input-group mb-3">
                     <input type="text" value={query} onChange={handleChange} className="form-control" placeholder="Search for a country..." />
                     <button type="submit" className="btn btn-primary">Search</button>
