@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { generalRequest } from '../httpService';
 import SearchBar from '../components/SearchBar';
+import Button from 'react-bootstrap/esm/Button';
 
 const Destination = () => {
   const [data, setData] = useState([])
@@ -9,6 +10,25 @@ const Destination = () => {
 
   console.log(userId, "userId")
 
+  const deleteCountry = async () => {
+    try {
+      const response = await fetch(`/country/wishlist/delete/:id`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      if(response.ok){
+        const data = await response.json();
+        console.log(data.message)
+      }else {
+        const errorMessage = await response.json()
+        console.log(errorMessage.messgage)
+      }
+    } catch (error) {
+      console.error('Error deleting from wishlist:', error);
+    }
+}
 
   useEffect(() => {
 
@@ -55,7 +75,7 @@ const Destination = () => {
             <img src={dest.flag} alt={dest.name} style={{ width: '18rem' }} />
             <p>Population: {dest.population}</p>
             <p>Capital: {dest.capital}</p>
-
+            <Button onClick={deleteCountry} className="formButton" variant="danger">Delete</Button>
           </div>
         </div>
       ))

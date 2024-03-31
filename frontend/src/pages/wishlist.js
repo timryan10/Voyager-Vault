@@ -1,5 +1,5 @@
+import Button from 'react-bootstrap/Button';
 //import React from 'react';
-import Footer from '../components/Footer'
 import React, { useEffect, useState } from 'react';
 import { generalRequest } from '../httpService';
 import SearchBar from '../components/SearchBar';
@@ -21,13 +21,32 @@ const Wishlist = () => {
         const { data } = await generalRequest.get(`/country/wishlist/add/${userId}`)
         console.log(data)
         setData(data)
-
       }
       fetchWishlist()
     }
 
 
   }, [])
+
+  const deleteCountry = async () => {
+    try {
+      const response = await fetch(`/country/wishlist/delete/:id`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      if(response.ok){
+        const data = await response.json();
+        console.log(data.message)
+      }else {
+        const errorMessage = await response.json()
+        console.log(errorMessage.messgage)
+      }
+    } catch (error) {
+      console.error('Error deleting from wishlist:', error);
+    }
+}
 
   return (
     <div>
@@ -54,7 +73,7 @@ const Wishlist = () => {
             <img src={wish.flag} alt={wish.name} style={{ width: '16rem' }} />
             <p>Population: {wish.population}</p>
             <p>Capital: {wish.capital}</p>
-
+            <Button onClick={deleteCountry} className="formButton" variant="danger">Delete</Button>
         </div>
       </div>
       ))
